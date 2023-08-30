@@ -1,8 +1,8 @@
 # Bash projects  
 
-### Shell basic and Scripting
+### Shell basic and scripting
 
-## Learning Objectives
+### Learning Objectives
 
 ##### What is the Shell
 
