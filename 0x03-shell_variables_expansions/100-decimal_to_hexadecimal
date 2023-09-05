@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(($DECIMAL#16))
+echo $(($DECIMAL#16))))
