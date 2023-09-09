@@ -2,10 +2,6 @@
 
 ### Shell basic and scripting
 
-### Learning Objectives
+### Shell permission
 
-##### What is the Shell
-
-##### Navigation
-
-##### Manipulating Files
+### Shell I/O redirection 
