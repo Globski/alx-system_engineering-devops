@@ -21,7 +21,7 @@ In this project, you will design and analyze various web infrastructures, focusi
 Web infrastructure design is crucial for building scalable, reliable, and efficient web applications. Understanding the various components and their interactions helps in designing robust systems.
 
 ## Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+After completing this project, you should be able to explain:
 
 - DNS
 - Monitoring
