@@ -7,10 +7,10 @@ In this project, you will design and analyze various web infrastructures, focusi
 
 | Task                   | Description                                                          | Deliverable                  |
 |------------------------|----------------------------------------------------------------------|------------------------------|
-| Simple web stack       | Design a one server web infrastructure.                              | [0-simple_web_stack](0-simple_web_stack)  |
-| Distributed web infrastructure | Design a three server web infrastructure.                           | [1-distributed_web_infrastructure](1-distributed_web_infrastructure)  |
-| Secured and monitored web infrastructure | Design a secured and monitored web infrastructure.                           | [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure)  |
-| Scale up               | Scale up the existing web infrastructure.                           | [3-scale_up](3-scale_up)  |
+| Simple web stack       | Design a one server web infrastructure.                              | [0-simple_web_stack](0-simple_web_stack), [0-simple_web_stack.png](0-simple_web_stack.png), [0-simple_web_stack.md](0-simple_web_stack.md) |
+| Distributed web infrastructure | Design a three server web infrastructure.                           | [1-distributed_web_infrastructure](1-distributed_web_infrastructure), [1-distributed_web_infrastructure.png](1-distributed_web_infrastructure.png), [1-distributed_web_infrastructure.md](1-distributed_web_infrastructure.md)  |
+| Secured and monitored web infrastructure | Design a secured and monitored web infrastructure.                           | [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure), [2-secured_and_monitored_web_infrastructure.png](2-secured_and_monitored_web_infrastructure.png), [2-secured_and_monitored_web_infrastructure.md](2-secured_and_monitored_web_infrastructure.md)  |
+| Scale up               | Scale up the existing web infrastructure.                           | [3-scale_up](3-scale_up), [3-scale_up.png](3-scale_up.png), [3-scale_up.md](3-scale_up.md)  |
 
 
 ## Requirements
@@ -21,7 +21,7 @@ In this project, you will design and analyze various web infrastructures, focusi
 Web infrastructure design is crucial for building scalable, reliable, and efficient web applications. Understanding the various components and their interactions helps in designing robust systems.
 
 ## Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+After completing this project, you should be able to explain:
 
 - DNS
 - Monitoring

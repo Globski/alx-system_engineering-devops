@@ -1,7 +1,7 @@
 # System-Engineering Devops - Loops, Conditions, and Parsing
 
 ## Description
-In this project, you'll delve into the world of shell scripting, focusing on loops, conditions, and parsing. By mastering these concepts, you'll be able to create efficient and robust Bash scripts for automating various tasks.
+This project is designed to teach fundamental concepts of Bash scripting, including loops, condition statements, and parsing. The tasks focus on creating scripts that utilize various types of loops (for, while, until) and conditional statements (if, elif, else, case). By the end of this project, you will be able to handle different scripting scenarios in a Unix-based environment.
 
 ## Project Structure
 
@@ -34,7 +34,6 @@ In this project, you'll delve into the world of shell scripting, focusing on loo
 - All Bash script files must be executable.
 - Your Bash script must pass Shellcheck (version 0.7.0) without any error
 - The first line of all Bash scripts should be exactly `#!/usr/bin/env bash`.
-- The second line of all Bash scripts should be a comment explaining what the script is doing.
 
 ## Learning Objectives
 
@@ -46,15 +45,102 @@ After completing this project, you should be able to explain:
 - Writing portable Bash scripts (What is the advantage of using #!/usr/bin/env bash over #!/bin/bash).
 - Importance of passing Shellcheck for script validation.
 
+## Tasks
+
+### 0. Create a SSH RSA key pair
+- **File:** `0-RSA_public_key.pub`
+- **Description:** Create an RSA key pair.
+
+### 1. For Best School loop
+- **File:** `1-for_best_school`
+- **Description:** Write a Bash script that displays "Best School" 10 times using a `for` loop.
+
+### 2. While Best School loop
+- **File:** `2-while_best_school`
+- **Description:** Write a Bash script that displays "Best School" 10 times using a `while` loop.
+
+### 3. Until Best School loop
+- **File:** `3-until_best_school`
+- **Description:** Write a Bash script that displays "Best School" 10 times using an `until` loop.
+
+### 4. If 9, say Hi!
+- **File:** `4-if_9_say_hi`
+- **Description:** Write a Bash script that displays "Hi" for the 9th iteration, and "Best School" for the rest of the iterations, using a `while` loop and an `if` statement.
+
+### 5. 4 bad luck, 8 is your chance
+- **File:** `5-4_bad_luck_8_is_your_chance`
+- **Description:** Write a Bash script that loops from 1 to 10 and:
+  - Displays "bad luck" for the 4th iteration.
+  - Displays "good luck" for the 8th iteration.
+  - Displays "Best School" for the other iterations.
+
+### 6. Superstitious numbers
+- **File:** `6-superstitious_numbers`
+- **Description:** Write a Bash script that displays numbers from 1 to 20, but:
+  - Displays "4" and then "bad luck from China" for the 4th iteration.
+  - Displays "9" and then "bad luck from Japan" for the 9th iteration.
+  - Displays "17" and then "bad luck from Italy" for the 17th iteration.
+
+### 7. Clock
+- **File:** `7-clock`
+- **Description:** Write a Bash script that displays the time for 12 hours and 59 minutes:
+  - Display hours from 0 to 12.
+  - Display minutes from 0 to 59.
+
+### 8. For ls
+- **File:** `8-for_ls`
+- **Description:** Write a Bash script that displays:
+  - The content of the current directory.
+  - In a list format where only the name of the file is displayed.
+
+### 9. To file, or not to file
+- **File:** `9-to_file_or_not_to_file`
+- **Description:** Write a Bash script that gives information about a file.
+
+### 10. FizzBuzz
+- **File:** `10-fizzbuzz`
+- **Description:** Write a Bash script that displays numbers from 1 to 100 with FizzBuzz rules:
+  - Display "Fizz" for multiples of 3.
+  - Display "Buzz" for multiples of 5.
+  - Display "FizzBuzz" for multiples of both 3 and 5.
+
+### 11. Read and cut
+- **File:** `11-read_and_cut`
+- **Description:** Write a Bash script that reads each line of a file and cuts specific fields from it.
+
+### 12. Tell the story of passwd
+- **File:** `12-tell_the_story_of_passwd`
+- **Description:** Write a Bash script that tells the story of each user in the `/etc/passwd` file by extracting and displaying relevant information.
+
+### 13. Parse Apache logs
+- **File:** `13-parse_apache_logs`
+- **Description:** Write a Bash script that parses Apache log files and displays visitor IP addresses along with the corresponding HTTP status codes.
+
+### 14. Dig the data
+- **File:** `14-dig_the_data`
+- **Description:** Write a Bash script that groups visitors by IP address and HTTP status code, sorts the data by the number of occurrences, and displays it in the required format.
+
 ## Additional Note
 
 - Avoid disrupting system functionality by reverting any changes made to configuration settings after testing.
 
 ## How to Use
 
-1. Clone the repository to your local machine.
-2. Navigate to the project directory `0x04-loops_conditions_and_parsing`.
-3. Ensure all scripts are executable using `chmod +x script_name`.
-4. Execute each script with appropriate arguments to perform the specified tasks.
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd 0x04-loops_conditions_parsing
+   ```
+3. Make the scripts executable:
+   ```bash
+   chmod +x <script_name>
+   ```
+4. Run the scripts:
+   ```bash
+   ./<script_name>
+   ```
 
 Happy scripting!
