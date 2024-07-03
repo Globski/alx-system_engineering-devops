@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Fix the Docker container to ensure that Apache is running and serving a page containing "Hello Holberton"
+
+apt-get update
+apt-get install -y apache2
+echo "ServerName localhost" >> /etc/apache2.conf
+echo "Hello Holberton" > /var/www/html/index.html
+service apache2 start
+
