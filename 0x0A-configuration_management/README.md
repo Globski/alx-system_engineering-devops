@@ -14,8 +14,8 @@ This project demonstrates basic configuration management using Puppet. It includ
 ## Learning Objectives
 By the end of this project, you should be able to explain:
 
-- Understand the basics of configuration management.
-- Learn to write Puppet manifests to manage files, packages, and processes.
+- Basics of configuration management.
+- Write Puppet manifests to manage files, packages, and processes.
 
 ## Environment
 - **OS:** Ubuntu 20.04 LTS
@@ -45,6 +45,7 @@ $ apt-get install -y ruby=1:2.7+1 --allow-downgrades
   $ apt-get install -y ruby-augeas
   $ apt-get install -y ruby-shadow
   $ apt-get install -y puppet
+  $ gem install puppet-lint
 ```
 
 **Ensure that you have the necessary environment set up, including Puppet and Puppet Lint, before running these commands.**
@@ -83,7 +84,7 @@ Ensure the process killmenow is terminated.
 - **Manifest File:** 0-create_a_file.pp
 - **Description:** Creates a file at /tmp/school with permissions 0744, owner www-data, group www-data, and content I love Puppet.
 
-Example:
+**Example:**
 ```
 root@6712bef7a528:~# puppet-lint --version
 puppet-lint 2.5.2
@@ -105,7 +106,7 @@ I love Puppetroot@6712bef7a528:~#
 - **Manifest File:** 1-install_a_package.pp
 - **Description:** Installs Flask version 2.1.0 using pip3.
 
-Example:
+**Example:**
 ```
 root@9665f0a47391:/# puppet apply 1-install_a_package.pp
 Notice: Compiled catalog for 9665f0a47391 in environment production in 0.14 seconds
@@ -122,7 +123,8 @@ Werkzeug 2.1.1
 - **Manifest File:** 2-execute_a_command.pp
 - **Description:** Kills a process named killmenow using the pkill command.
 
-Example: Terminal #0 - starting my process
+**Example:**
+**Terminal #0 - starting my process**
 ```
 root@d391259bf577:/# cat killmenow
 #!/bin/bash
@@ -134,7 +136,7 @@ done
 root@d391259bf577:/# ./killmenow
 ```
 
-Terminal #1 - executing my manifest
+**Terminal #1 - executing my manifest**
 ```
 root@d391259bf577:/# puppet apply 2-execute_a_command.pp
 Notice: Compiled catalog for d391259bf577.hsd1.ca.comcast.net in environment production in 0.01 seconds
@@ -142,7 +144,7 @@ Notice: /Stage[main]/Main/Exec[killmenow]/returns: executed successfully
 Notice: Finished catalog run in 0.10 seconds
 root@d391259bf577:/# 
 ```
-Terminal #0 - process has been terminated
+**Terminal #0 - process has been terminated**
 ```
 root@d391259bf577:/# ./killmenow
 Terminated
