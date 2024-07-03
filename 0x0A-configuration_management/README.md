@@ -45,6 +45,7 @@ $ apt-get install -y ruby=1:2.7+1 --allow-downgrades
   $ apt-get install -y ruby-augeas
   $ apt-get install -y ruby-shadow
   $ apt-get install -y puppet
+  $ gem install puppet-lint
 ```
 
 **Ensure that you have the necessary environment set up, including Puppet and Puppet Lint, before running these commands.**
