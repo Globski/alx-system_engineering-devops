@@ -8,6 +8,5 @@ apt-get install -y nginx
 
 sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
 echo "Hello World!" > /var/www/html/index.html
-curl -s localhost | grep "Hello World!" > /dev/null
 
 service nginx restart
