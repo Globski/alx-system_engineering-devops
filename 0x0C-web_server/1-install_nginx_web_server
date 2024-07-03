@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Installs Nginx and configures it to serve "Hello World!" at the root with the following configurations:
+#+    Listens on port 80.
+#+    Returns a page containing "Hello World!" when queried at the root with a curl GET request.
+
+
+apt-get update
+apt-get install -y nginx
+
+service nginx start
+
+sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
+
+echo "Hello World!" > /var/www/html/index.html
+
+curl -s localhost | grep "Hello World!" > /dev/null
+
+if [ $? -eq 0 ]; then
+    echo "Nginx installed successfully and serving 'Hello World!'"
+else
+    echo "Error: Nginx installation failed or configuration incorrect"
+fi
+
+service nginx restart
