@@ -8,8 +8,8 @@ fetch_dns_info() {
 
 	dig_output=$(dig ${subdomain}.${domain} | awk '/ANSWER SECTION:/ {getline; print}')
 
-	record_type=$(echo $dig_output | awk '{print $2}')
-	destination=$(echo $dig_output | awk '{print $1}')
+	record_type=$(echo $dig_output | awk '{print $4}')
+	destination=$(echo $dig_output | awk '{print $5}')
 
 	echo "The subdomain ${subdomain} is a ${record_type} record and points to ${destination}"
 }
