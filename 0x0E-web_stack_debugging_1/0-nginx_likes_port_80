@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
-# Installs Nginx and starts its service.
+# Configures an Nginx server to listen on port 80.
+
+apt-get remove --purge -y nginx nginx-common nginx-core
+apt-get autoremove -y
+apt-get autoclean
 
 apt-get update -y
 apt-get install -y nginx
+sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
+
 service nginx start
