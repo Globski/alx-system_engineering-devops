@@ -4,27 +4,27 @@
 
 fetch_dns_info() {
 	domain=$1
-		subdomain=$2
+	subdomain=$2
 
-		dig_output=$(dig ${subdomain}.${domain} | awk '/ANSWER SECTION:/ {getline; print}')
+	dig_output=$(dig ${subdomain}.${domain} | awk '/ANSWER SECTION:/ {getline; print}')
 
-		record_type=$(echo $dig_output | awk '{print $2}')
-		destination=$(echo $dig_output | awk '{print $1}')
+	record_type=$(echo $dig_output | awk '{print $2}')
+	destination=$(echo $dig_output | awk '{print $1}')
 
-		echo "The subdomain ${subdomain} is a ${record_type} record and points to ${destination}"
+	echo "The subdomain ${subdomain} is a ${record_type} record and points to ${destination}"
 }
 
 main() {
 	domain=$1
-		subdomains=("www" "lb-01" "web-01" "web-02")
+	subdomains=("www" "lb-01" "web-01" "web-02")
 
-		if [ -n "$2" ]; then
-			fetch_dns_info $domain $2
-		else
-			for subdomain in "${subdomains[@]}"; do
-				fetch_dns_info $domain $subdomain
-					done
-					fi
+	if [ -n "$2" ]; then
+		fetch_dns_info $domain $2
+	else
+		for subdomain in "${subdomains[@]}"; do
+			fetch_dns_info $domain $subdomain
+		done
+	fi
 }
 
 main $@
