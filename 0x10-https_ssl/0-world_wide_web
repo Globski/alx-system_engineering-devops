@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Fetch and display DNS information about subdomains.
+# Usage: ./1-world_wide_web <domain> <subdomain>
+
+fetch_dns_info() {
+	domain=$1
+		subdomain=$2
+
+		dig_output=$(dig ${subdomain}.${domain} | awk '/ANSWER SECTION:/ {getline; print}')
+
+		record_type=$(echo $dig_output | awk '{print $2}')
+		destination=$(echo $dig_output | awk '{print $1}')
+
+		echo "The subdomain ${subdomain} is a ${record_type} record and points to ${destination}"
+}
+
+main() {
+	domain=$1
+		subdomains=("www" "lb-01" "web-01" "web-02")
+
+		if [ -n "$2" ]; then
+			fetch_dns_info $domain $2
+		else
+			for subdomain in "${subdomains[@]}"; do
+				fetch_dns_info $domain $subdomain
+					done
+					fi
+}
+
+main $@
