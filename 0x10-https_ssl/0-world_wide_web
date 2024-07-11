@@ -27,4 +27,9 @@ main() {
 	fi
 }
 
+if [ -z "$1" ]; then
+	echo "Usage: ./1-world_wide_web <domain> [subdomain]"
+	exit 1
+fi
+
 main "$@"
