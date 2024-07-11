@@ -19,7 +19,7 @@ main() {
 	subdomains=("www" "lb-01" "web-01" "web-02")
 
 	if [ -n "$2" ]; then
-		fetch_dns_info $domain "$2"
+		fetch_dns_info "$domain" "$2"
 	else
 		for subdomain in "${subdomains[@]}"; do
 			fetch_dns_info "$domain" "$subdomain"
