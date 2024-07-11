@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-Installs Nginx and starts its service.
+# Installs Nginx and starts its service.
 
 apt-get update -y
 apt-get install -y nginx
