@@ -36,6 +36,11 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
+frontend www-http
+	bind *:80
+	reqadd X-Forwarded-Proto:\ http
+	default_backend www-backend
+
 frontend www-https
         bind *:443 ssl crt /etc/letsencrypt/live/www.staybnb.tech/staybnb.pem
         reqadd X-Forwarded-Proto:\ https
