@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Installs Nginx and configures to redirect /redirect_me to another page.
+# Installs Nginx and configures to redirect /redirect_me to another page,
 # with a "301 Moved Permanently" status.
 
 sudo apt-get update
