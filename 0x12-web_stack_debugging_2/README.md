@@ -11,7 +11,7 @@ This project focus on debugging and configuring a web stack to enhance security 
 | Task 2: 7 Lines or Less           | Simplify the Task 1 script to 7 lines or less, adhering to specified constraints.                | [100-fix_in_7_lines_or_less](100-fix_in_7_lines_or_less) |.
 
 **Debugging**:
-   - Troubleshoot and resolve issues related to the web stack, which could involve configuration problems, service issues, or other system-level ### Task 0: Run Software as Another User
+   - Troubleshoot and resolve issues related to the web stack, which could involve configuration problems, service issues, or other system-level
 
 ## Learning Objectives
 - Understand how to run processes as different users in a Unix-like environment.
