@@ -67,8 +67,9 @@ By the end of this project, you should be able to explain:
 2. **Install MySQL server:**
    
 ```bash
-   sudo apt-get install mysql-server-5.7
+   sudo wget -O mysql57 https://raw.githubusercontent.com/nuuxcode/alx-system_engineering-devops/master/scripts/mysql57 && sudo chmod +x mysql57 &&  sudo ./mysql57
 ```
+- Ubuntu 16.04 is codenamed "Xenial Xerus.
 
 3. **Verify installation:**
    
