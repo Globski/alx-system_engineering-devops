@@ -22,3 +22,167 @@ A firewall is a security system that monitors and controls incoming and outgoing
 - Configure port forwarding using UFW.
 
 
+## How to Use
+
+**Install UFW (Uncomplicated Firewall)**
+**Set up basic UFW rules**
+**Verify the firewall configuration**
+
+#### Steps:
+1. **SSH into web-01:**
+
+    ```bash
+    ssh ubuntu@34.203.29.246
+    ```
+
+2. **Install UFW if it's not already installed:**
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install ufw -y
+    ```
+
+3. **Reset UFW to default settings:**
+
+    ```bash
+    sudo ufw reset
+    ```
+
+4. **Allow necessary ports:**
+
+    ```bash
+    sudo ufw allow 22/tcp
+    sudo ufw allow 80/tcp
+    sudo ufw allow 443/tcp
+    ```
+   You can also set up additional rules as needed:
+
+   **Allow specific ports:**
+
+   ```bash
+   sudo ufw allow 8080/tcp
+   ```
+
+   **Deny specific ports:**
+
+   ```bash
+   sudo ufw deny 23/tcp
+   ```
+5. **Enable UFW and block all other incoming traffic:**
+
+    ```bash
+    sudo ufw default deny incoming
+    sudo ufw default allow outgoing
+    sudo ufw enable
+    ```
+
+6. **Verify the UFW status and rules:**
+
+    ```bash
+    sudo ufw status verbose
+    ```
+
+**Test open ports using telnet:**
+
+From web-02, check if port 22 is open on web-01:
+
+```bash
+telnet web-01 22
+```
+
+You should see something like:
+
+```
+Trying 34.203.29.246...
+Connected to 34.203.29.246.
+Escape character is '^]'.
+SSH-2.0-OpenSSH_7.6p1 Ubuntu-4ubuntu0.3
+```
+
+Check a port that you know is closed:
+
+```bash
+telnet web-01 2222
+```
+
+You should see:
+
+```
+Trying 34.203.29.246...
+^C
+```
+
+#### Add a rule to forward traffic from port 8080 to 80
+
+**Edit the UFW configuration file to include port forwarding:**
+
+    Open the UFW configuration file:
+
+    ```bash
+    sudo nano /etc/ufw/before.rules
+    ```
+
+    Add the following lines before the `*filter` line:
+
+    ```bash
+    *nat
+    :PREROUTING ACCEPT [0:0]
+    -A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+    COMMIT
+    ```
+
+   **Restart UFW to apply the changes:**
+
+    ```bash
+    sudo service ufw restart
+    ```
+
+   **Verify the port forwarding setup:**
+
+   ```bash
+   curl -sI http://34.203.29.246:8080
+   ```
+
+### Important Considerations
+
+- **Avoid locking yourself out:** Always ensure that SSH (port 22) is allowed before enabling UFW.
+- **Test from different origins:** If your school network has outgoing connection filters, SSH into web-02 to perform tests on web-01 to bypass the network firewall.
+- **Use caution with rules:** Misconfiguring the firewall could block necessary traffic or lock you out of the server.
+
+## Tasks
+
+### Task 0: Block all incoming traffic but
+
+#### Requirements:
+- Block all incoming traffic except for TCP ports 22 (SSH), 80 (HTTP), and 443 (HTTPS).
+- Apply these rules to `web-01`.
+
+**File:** `0-block_all_incoming_traffic_but`
+
+### Task 1: Port forwarding
+
+#### Requirements:
+- Configure web-01 so that its firewall redirects port 8080/TCP to port 80/TCP.
+
+**Verification:**
+
+Use `netstat` and `curl` commands to verify the port forwarding:
+
+```bash
+# On web-01:
+root@03-web-01:~# netstat -lpn
+
+# On web-02:
+ubuntu@03-web-02:~$ curl -sI web-01.holberton.online:80
+ubuntu@03-web-02:~$ curl -sI web-01.holberton.online:8080
+```
+
+**Expected output:**
+
+```bash
+# netstat output showing nginx listening on port 80 and SSH on port 22
+
+# curl output showing HTTP 200 response on both port 80 and port 8080
+```
+
+**File:** `100-port_forwarding`
