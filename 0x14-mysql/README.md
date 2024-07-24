@@ -134,6 +134,7 @@ By the end of this project, you should be able to explain:
      server_id = 2
      relay_log = /var/log/mysql/mysql-relay-bin.log
      log_bin = /var/log/mysql/mysql-bin.log
+      binlog_do_db = tyrell_corp
 ```
    - Restart MySQL:
      
