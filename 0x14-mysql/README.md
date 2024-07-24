@@ -35,6 +35,16 @@ By the end of this project, you should be able to explain:
 - Build a robust database backup strategy
 - mysqldump
 
+#### Primary (Master) Server
+
+- **Role**: The primary server is the main database server where all write operations (INSERT, UPDATE, DELETE) occur. It handles the creation, modification, and deletion of data.
+- **Configuration**: It is configured to log all changes (writes) to a binary log file (`binlog`). These logs are then sent to the replica servers.
+
+#### Replica (Slave) Server
+
+- **Role**: The replica server is a copy of the primary server. It receives and applies the changes logged by the primary server. Typically, it handles read operations (SELECT) to distribute the load and improve performance.
+- **Configuration**: It is configured to read the binary log files from the primary server and apply the changes to keep its data synchronized.
+
 ## Environment
 
 - Ubuntu 16.04 LTS
