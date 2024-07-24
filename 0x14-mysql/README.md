@@ -35,192 +35,15 @@ By the end of this project, you should be able to explain:
 - Build a robust database backup strategy
 - mysqldump
 
-## Environment
+#### Primary (Master) Server
 
-- Ubuntu 16.04 LTS
-- **Web-01**: MySQL primary server.
-- **Web-02**: MySQL replica server.
-- **MySQL 5.7.x**
+- **Role**: The primary server is the main database server where all write operations (INSERT, UPDATE, DELETE) occur. It handles the creation, modification, and deletion of data.
+- **Configuration**: It is configured to log all changes (writes) to a binary log file (`binlog`). These logs are then sent to the replica servers.
 
+#### Replica (Slave) Server
 
-## Requirements
-
-- All your Bash script files must be executable
-- Your Bash script must pass Shellcheck (version 0.3.7-5~ubuntu16.04.1 via apt-get) without any error
-- The first line of all your Bash scripts should be exactly #!/usr/bin/env bash
-- All your files should end with a new line
-
-## How to Use
-
-### Setup Instructions
-
-#### 1. Installing MySQL 5.7
-
-**Installation**: Follow the instructions for installing MySQL on your servers. Ensure both servers have MySQL 5.7.x installed and running.
-
-1. **Update package information:**
-   
-bash
-   sudo apt-get update
-
-
-2. **Install MySQL server:**
-   
-bash
-   sudo apt-get install mysql-server-5.7
-
-
-3. **Verify installation:**
-   
-bash
-   mysql --version
-
-
-#### 2. Setting Up Users
-
-**Configuration**: Configure MySQL on both servers as described in the tasks. Create users, set permissions, and configure replication as outlined.
-
-1. **Create holberton_user on both servers:**
-   
-sql
-   CREATE USER 'holberton_user'@'localhost' IDENTIFIED BY 'projectcorrection280hbtn';
-   GRANT REPLICATION CLIENT ON *.* TO 'holberton_user'@'localhost';
-   FLUSH PRIVILEGES;
-
-
-2. **Create replica_user on the primary server:**
-   
-sql
-   CREATE USER 'replica_user'@'%' IDENTIFIED BY 'your_password';
-   GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
-   FLUSH PRIVILEGES;
-
-
-#### 3. Configuring MySQL Replication
-
-**Verification**: Verify MySQL replication and permissions using provided commands and examples. Check that replication is working by adding records and ensuring they appear on both servers.
-
-1. **Primary Server Configuration (web-01):**
-   - Edit MySQL configuration file (/etc/mysql/mysql.conf.d/mysqld.cnf):
-     
-ini
-     [mysqld]
-     log_bin = /var/log/mysql/mysql-bin.log
-     server_id = 1
-     binlog_do_db = tyrell_corp
-
-   - Restart MySQL:
-     
-bash
-     sudo service mysql restart
-
-
-2. **Replica Server Configuration (web-02):**
-   - Edit MySQL configuration file (/etc/mysql/mysql.conf.d/mysqld.cnf):
-     
-ini
-     [mysqld]
-     server_id = 2
-     relay_log = /var/log/mysql/mysql-relay-bin.log
-     log_bin = /var/log/mysql/mysql-bin.log
-
-   - Restart MySQL:
-     
-bash
-     sudo service mysql restart
-
-
-3. **Setting Up Replication:**
-   - On primary server (web-01), get the binary log file name and position:
-     
-sql
-     SHOW MASTER STATUS;
-
-   - On replica server (web-02), start replication:
-     
-sql
-     CHANGE MASTER TO MASTER_HOST='web-01-ip', MASTER_USER='replica_user', MASTER_PASSWORD='your_password', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=log_position;
-     START SLAVE;
-
-
-#### 4. Running the Backup Script
-
-**Backup**: Use the provided Bash script to create backups of your database. Ensure the backup is correctly formatted and stored.
-
-1. **Create a Bash script (5-mysql_backup.sh):**
-   
-bash
-   #!/usr/bin/env bash
-   # This script generates a MySQL dump and creates a compressed archive.
-
-   PASSWORD=$1
-   FILE_NAME=$(date +'%d-%m-%Y').tar.gz
-
-   mysqldump -u root -p${PASSWORD} --all-databases > backup.sql
-   tar -czvf ${FILE_NAME} backup.sql
-   rm backup.sql
-
-
-2. **Make the script executable:**
-   
-bash
-   chmod +x 5-mysql_backup.sh
-
-
-3. **Run the script:**
-   
-bash
-   ./5-mysql_backup.sh your_mysql_root_password
-
-
-## **Additional Tips**
-
-- **Check MySQL Documentation:** Refer to the MySQL documentation for detailed commands and configuration options.
-- **Backup Testing:** Regularly test your backup and restore procedures to ensure they work as expected.
-- **Firewall Configuration:** Ensure UFW allows traffic on port 3306 for MySQL replication to function properly.
-
-## Tasks
-
-0. **Install MySQL (Task 0)**
-   - **Objective:** Install MySQL version 5.7.x on both web-01 and web-02 servers.
-   - **Verification:** Ensure MySQL is installed by running mysql --version on both servers.
-   - **Repo Info:** GitHub repository: alx-system_engineering-devops, Directory: 0x14-mysql.
-gh-Level Programming - MySQL
-
-## Description
-
-The project involves working with MySQL databases. It focuses on setting up and configuring MySQL replication between a primary and a replica server, as well as creating and managing MySQL backups. This project will test your skills in database administration and web stack debugging.
-
-## Project Structure
-
-| Task | Description | Source Code |
-|------|-------------|-------------|
-| **0. Install MySQL** | Install MySQL distribution 5.7.x on both web-01 and web-02 servers. Ensure MySQL status can be checked. | [Source Code](https://github.com/username/alx-system_engineering-devops/tree/main/0x14-mysql) |
-| **1. Let us in!** | Create a MySQL user holberton_user on both servers with the password projectcorrection280hbtn and grant necessary permissions. | [Source Code](https://github.com/username/alx-system_engineering-devops/tree/main/0x14-mysql) |
-| **2. If only you could see what I've seen with your eyes** | Create a database named tyrell_corp and a table named nexus6 with at least one entry. Ensure holberton_user has SELECT privileges. | [Source Code](https://github.com/username/alx-system_engineering-devops/tree/main/0x14-mysql) |
-| **3. Quite an experience to live in fear, isn't it?** | Create a MySQL user replica_user for replication with appropriate permissions. Ensure holberton_user can check the user’s permissions. | [Source Code](https://github.com/username/alx-system_engineering-devops/tree/main/0x14-mysql) |
-| **4. Setup a Primary-Replica infrastructure using MySQL** | Set up replication between the primary MySQL server (web-01) and the replica server (web-02). Provide configurations and ensure replication works. | [Source Code](https://github.com/username/alx-system_engineering-devops/tree/main/0x14-mysql) |
-| **5. Backup your database** | Write a Bash script to create a backup of your MySQL database, save it in /tmp/, and format the filename as day-month-year.tar.gz. Handle authentication and compression. | [Source Code](https://github.com/username/alx-system_engineering-devops/tree/main/0x14-mysql) |
-
-## Features
-
-- Install and configure MySQL servers.
-- Set up MySQL replication between primary and replica servers.
-- Create and manage MySQL users with appropriate permissions.
-- Implement and verify MySQL backups.
-
-## Learning Objectives
-By the end of this project, you should be able to explain:
-
-- What is the main role of a database
-- What is a database replica
-- What is the purpose of a database replica
-- Why database backups need to be stored in different physical locations
-- What operation should you regularly perform to make sure that your database backup strategy actually works
-- What is a primary-replica cluster?
-- MySQL primary replica setup
-- Build a robust database backup strategy
-- mysqldump
+- **Role**: The replica server is a copy of the primary server. It receives and applies the changes logged by the primary server. Typically, it handles read operations (SELECT) to distribute the load and improve performance.
+- **Configuration**: It is configured to read the binary log files from the primary server and apply the changes to keep its data synchronized.
 
 ## Environment
 
@@ -254,8 +77,9 @@ By the end of this project, you should be able to explain:
 2. **Install MySQL server:**
    
 ```bash
-   sudo apt-get install mysql-server-5.7
+   sudo wget -O mysql57 https://raw.githubusercontent.com/nuuxcode/alx-system_engineering-devops/master/scripts/mysql57 && sudo chmod +x mysql57 &&  sudo ./mysql57
 ```
+- Ubuntu 16.04 is codenamed "Xenial Xerus.
 
 3. **Verify installation:**
    
@@ -310,6 +134,7 @@ By the end of this project, you should be able to explain:
      server_id = 2
      relay_log = /var/log/mysql/mysql-relay-bin.log
      log_bin = /var/log/mysql/mysql-bin.log
+      binlog_do_db = tyrell_corp
 ```
    - Restart MySQL:
      
@@ -563,8 +388,8 @@ Having backups of your MySQL database is very important as it allows you to rest
 Example:
 ```bash
 #!/bin/bash
-#### Backup script for MySQL databases
 
+Backup script for MySQL databases
 BACKUP_DIR="/tmp"
 DATE=$(date +"%d-%m-%Y")
 FILENAME="backup_$DATE.tar.gz"
@@ -575,18 +400,18 @@ if [ -z "$MYSQL_PASSWORD" ]; then
   echo "Usage: $0 <mysql_root_password>"
   exit 1
 fi
-```
-#### Create the backup
+
+Create the backup
 mysqldump -u $MYSQL_USER -p$MYSQL_PASSWORD --all-databases | gzip > $BACKUP_DIR/$FILENAME
 
-##### Check if backup was successful
+Check if backup was successful
 if [ $? -eq 0 ]; then
   echo "Backup successful: $BACKUP_DIR/$FILENAME"
 else
   echo "Backup failed"
   exit 1
 fi
-
+```
 - **Repo:**  
   GitHub repository: alx-system_engineering-devops  
   Directory: 0x14-mysql  
