@@ -8,7 +8,7 @@ import sys
 
 def fetch_employee_todo_progress(employee_id):
     """
-    Gather data from an API and print employee's completed tasks.
+    Fetches and displays employee's TODO list progress.
     Args:
         employee_id (int): The employee ID.
     """
@@ -17,17 +17,16 @@ def fetch_employee_todo_progress(employee_id):
     user_url = f"{base_url}/users/{employee_id}"
     user_response = requests.get(user_url)
     user_data = user_response.json()
-    employee_name = user_data.get("name")
 
     todo_url = f"{base_url}/todos?userId={employee_id}"
     todo_response = requests.get(todo_url)
     todo_list = todo_response.json()
 
+    employee_name = user_data.get("name")
     completed_tasks = [task for task in todo_list if task.get("completed")]
-    num_completed_tasks = len(completed_tasks)
-    total_tasks = len(todo_list)
 
-    print(f"Employee {employee_name} is done with tasks ({num_completed_tasks}/{total_tasks}):")
+    print(f"Employee {employee_name} is done with tasks "
+          f"({len(completed_tasks)}/{len(todo_list)}):")
 
     for task in completed_tasks:
         print(f"\t {task.get('title')}")
