@@ -1,48 +1,35 @@
 #!/usr/bin/python3
+"""Exports to-do list information of all employees to JSON format."""
 import json
 import requests
 
 
-def fetch_data():
-    """Fetch to-do list information of all employees from the API"""
-    todos_url = 'https://jsonplaceholder.typicode.com/todos'
-    users_url = 'https://jsonplaceholder.typicode.com/users'
+def fetch_and_export_todo_json():
+    """
+    Retrieve and export to-do lists for all employees to a JSON file.
+    """
+    base_url = "https://jsonplaceholder.typicode.com/"
 
-    todos_response = requests.get(todos_url)
-    todos_response.raise_for_status()
-    todos_data = todos_response.json()
+    user_response = requests.get(base_url + "users").json()
 
-    users_response = requests.get(users_url)
-    users_response.raise_for_status()
-    users_data = users_response.json()
+    all_todos = {}
 
-    return todos_data, users_data
+    for user in user_response:
+        user_id = str(user.get("id"))
 
+        todo_response = requests.get(
+                base_url + "todos", params={"userId": user.get("id")}
+                ).json()
 
-def export_to_json(todos, users):
-    """Export data to a JSON file"""
-    users_dict = {user['id']: user['username'] for user in users}
+        all_todos[user_id] = [{
+            "username": user.get("username"),
+            "task": task.get("title"),
+            "completed": task.get("completed")
+            } for task in todo_response]
 
-    result = {}
-    for task in todos:
-        user_id = str(task['userId'])
-        if user_id not in result:
-            result[user_id] = []
-        task_info = {
-                "username": users_dict.get(int(user_id), "Unknown"),
-                "task": task['title'],
-                "completed": task['completed']
-                }
-        result[user_id].append(task_info)
-
-    with open('todo_all_employees.json', 'w') as f:
-        json.dump(result, f, indent=4)
+        with open("todo_all_employees.json", "w") as jsonfile:
+            json.dump(all_todos, jsonfile, indent=4)
 
 
-def main():
-    todos_data, users_data = fetch_data()
-    export_to_json(todos_data, users_data)
-
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    fetch_and_export_todo_json()
