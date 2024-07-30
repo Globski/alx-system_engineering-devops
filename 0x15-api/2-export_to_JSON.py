@@ -35,7 +35,7 @@ def fetch_and_export_todo_json(employee_id):
 
     file_name = f"{employee_id}.json"
     with open(file_name, 'w') as json_file:
-        json.dump({str(employee_id): formatted_tasks}, file_name, indent=4)
+        json.dump({str(employee_id): formatted_tasks}, file, indent=4)
 
 
 if __name__ == "__main__":
