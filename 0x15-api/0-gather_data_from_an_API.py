@@ -33,12 +33,6 @@ def fetch_employee_todo_progress(employee_id):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        sys.exit(1)
-
     employee_id = sys.argv[1]
-    try:
-        employee_id = int(employee_id)
-    except ValueError:
-        sys.exit(1)
+    employee_id = int(employee_id)
     fetch_employee_todo_progress(employee_id)
