@@ -16,8 +16,9 @@ def fetch_employee_todo_progress(employee_id):
     user_response = requests.get(user_url)
     user_data = user_response.json()
 
-    todo_url = f"{base_url}/todos?userId={employee_id}"
-    todo_response = requests.get(todo_url)
+    todo_response = requests.get(
+        f"{base_url}/todos", params={"userId": employee_id}
+    )
     todo_list = todo_response.json()
 
     employee_name = user_data.get("name")
@@ -32,5 +33,4 @@ def fetch_employee_todo_progress(employee_id):
 
 if __name__ == "__main__":
     employee_id = sys.argv[1]
-    employee_id = int(employee_id)
     fetch_employee_todo_progress(employee_id)
