@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Exports to-do list information for a given employee ID to JSON."""
+import json
 import requests
 import sys
-import json
 
 
 def fetch_and_export_todo_json(employee_id):
@@ -35,7 +35,7 @@ def fetch_and_export_todo_json(employee_id):
 
     file_name = f"{employee_id}.json"
     with open(file_name, 'w') as json_file:
-        json.dump({str(employee_id): formatted_tasks}, file, indent=4)
+        json.dump(json_data, json_file, indent=4)
 
 
 if __name__ == "__main__":
