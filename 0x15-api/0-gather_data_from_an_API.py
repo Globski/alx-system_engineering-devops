@@ -11,8 +11,9 @@ def fetch_employee_todo_progress(employee_id):
     Gather data from an API.
     Args:
         employee_id (int): The employee ID.
-    Returns:
-        dict: A dictionary containing the employee's name and TODO list.
+    Prints:
+        Prints the employee's name, the number of completed tasks,
+        and the titles of the completed tasks.
     """
 
     base_url = "https://jsonplaceholder.typicode.com"
