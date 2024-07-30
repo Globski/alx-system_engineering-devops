@@ -15,7 +15,7 @@ def fetch_and_export_todo_csv(employee_id):
     user_data = user_response.json()
 
     todo_response = requests.get(f"{base_url}/todos", params={"userId": employee_id})
-    todos = todo_response.json()
+    todo_list = todo_response.json()
 
     file_name = f"{employee_id}.csv"
     with open(file_name, mode='w', newline='') as file:
