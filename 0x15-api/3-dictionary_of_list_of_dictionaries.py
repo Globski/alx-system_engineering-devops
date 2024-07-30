@@ -9,7 +9,6 @@ def fetch_and_export_todo_json():
     Retrieve and export to-do lists for all employees to a JSON file.
     """
     base_url = "https://jsonplaceholder.typicode.com/"
-
     user_response = requests.get(base_url + "users").json()
 
     all_todos = {}
