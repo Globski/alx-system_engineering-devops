@@ -16,7 +16,6 @@ def fetch_employee_todo_progress(employee_id):
     """
 
     base_url = "https://jsonplaceholder.typicode.com"
-
     user_url = f"{base_url}/users/{employee_id}"
     user_response = requests.get(user_url)
     user_data = user_response.json()
@@ -26,7 +25,6 @@ def fetch_employee_todo_progress(employee_id):
     todo_list = todo_response.json()
 
     employee_name = user_data.get("name")
-
     completed_tasks = [task for task in todo_list if task.get("completed")]
 
     print(f"Employee {employee_name} is done with tasks "
