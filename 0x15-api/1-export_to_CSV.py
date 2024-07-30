@@ -20,7 +20,7 @@ def fetch_and_export_todo_csv(employee_id):
     file_name = f"{employee_id}.csv"
     with open(file_name, mode='w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
-        for task in todos:
+        for task in todo_list:
             writer.writerow([employee_id, user_data.get("username"), task.get("completed"), task.get("title")])
 
 if __name__ == "__main__":
