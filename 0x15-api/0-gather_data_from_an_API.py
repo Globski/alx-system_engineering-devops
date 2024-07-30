@@ -30,7 +30,7 @@ def fetch_employee_todo_progress(employee_id):
           f"({len(completed_tasks)}/{len(todo_list)}):")
 
     for task in completed_tasks:
-        print(f"    {task}")
+        print(f"     {task}")
 
 
 if __name__ == "__main__":
