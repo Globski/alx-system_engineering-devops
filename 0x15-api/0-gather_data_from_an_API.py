@@ -24,9 +24,10 @@ def fetch_employee_todo_progress(employee_id):
     todo_list = todo_response.json()
 
     completed_tasks = [task for task in todo_list if task.get("completed")]
-    num_completed_tasks = len(completed_tasks)
     
-    print(f"Employee {employee_name} is done with tasks ({num_completed_tasks}/{len(todo_list)}):")
+    print(f"Employee {employee_name} is done with tasks "
+          f"({len(completed_tasks)}/{len(todo_list)}):")
+
     for task in completed_tasks:
         print(f"\t {task.get('title')}")
 
