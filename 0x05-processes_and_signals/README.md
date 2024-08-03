@@ -44,14 +44,39 @@ Upon completing this project, you should be able to explain:
 - Process management techniques such as creating background processes and managing PID files.
 - How to create and manage zombie processes in C.
 
-## Additional Notes
+## How to use
 
-- Ensure proper cleanup and termination of processes to avoid system instability.
-- Practice safe handling of signals to prevent unexpected behavior and ensure system reliability.
+**Installation**
+For Ubuntu/Debian:
 
-## How to Use
+```bash
+sudo apt-get update
+sudo apt-get install shellcheck
+```
 
-1. Clone the repository to your local machine.
-2. Navigate to the project directory `0x05-processes_and_signals`.
-3. Ensure all scripts are executable using `chmod +x script_name`.
-4. Execute each script with appropriate arguments to perform the specified tasks.
+**Using ShellCheck**
+
+Once ShellCheck is installed, you can run it on a shell script by using the command:
+```bash
+shellcheck your_script.sh
+```
+
+**Clone the repository:**
+   ```bash
+   git clone <repository_url>
+   ```
+
+**Navigate to the project directory:**
+   ```bash
+   cd 0x05-processes_and_signals
+   ```
+
+**Make the scripts executable:**
+   ```bash
+   chmod +x <script_name>
+   ```
+
+**Run the scripts:**
+   ```bash
+   ./<script_name>
+   ```
