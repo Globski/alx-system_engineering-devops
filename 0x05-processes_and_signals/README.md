@@ -25,13 +25,14 @@ This project focuses on the concepts of processes and signals in shell scripting
 
 - Ubuntu 20.04 LTS.
 - Shellcheck (version 0.7.0)
-- C programs must comply with the Betty style.
+- Betty style.
 
 ## Requirements
 
 - All files should end with a new line.
 - All Bash script files must be executable.
 - The first line of all Bash scripts should be `#!/usr/bin/env bash`.
+- C programs must comply with the Betty style.
 - Shell scripts must pass Shellcheck (version 0.7.0) without any error.
 
 ## Learning Objectives
