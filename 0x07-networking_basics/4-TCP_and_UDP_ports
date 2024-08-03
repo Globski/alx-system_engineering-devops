@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Displays listening TCP and UDP ports along with the PID and name of the program to which each socket belongs.
+
+etstat -l --program\
