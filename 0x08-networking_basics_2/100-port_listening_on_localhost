@@ -1,4 +1,9 @@
 #!/bin/bash
-# Listens on port 98 on localhost.
+# Use netcat (nc) to listen on port 98 on localhost.
 
-nc -l localhost 98
+# -l : Listen mode
+# -p : Port number
+# -n : Numeric-only IP addresses (no DNS)
+# -v : Verbose mode
+# -s : Source address (localhost)
+nc -lvnp 98
