@@ -1,7 +1,8 @@
 # System-Engineering Devops - Processes and Signals
 
 ## Description
-In this project, you'll explore the concepts of processes and signals in the context of shell scripting. Understanding how processes work and how signals can be used to communicate with them is crucial for effective process management and automation.
+
+This project focuses on the concepts of processes and signals in shell scripting. Understanding how processes work and how signals can be used to communicate with them is crucial for effective process management and automation.
 
 ## Project Structure
 
@@ -22,8 +23,8 @@ In this project, you'll explore the concepts of processes and signals in the con
 
 ## Environment
 
-- All files will be interpreted on Ubuntu 20.04 LTS.
-- Shell scripts must pass Shellcheck (version 0.7.0) without any error.
+- Ubuntu 20.04 LTS.
+- Shellcheck (version 0.7.0)
 - C programs must comply with the Betty style.
 
 ## Requirements
@@ -31,7 +32,7 @@ In this project, you'll explore the concepts of processes and signals in the con
 - All files should end with a new line.
 - All Bash script files must be executable.
 - The first line of all Bash scripts should be `#!/usr/bin/env bash`.
-- The second line of all Bash scripts should be a comment explaining what the script is doing.
+- Shell scripts must pass Shellcheck (version 0.7.0) without any error.
 
 ## Learning Objectives
 Upon completing this project, you should be able to explain:
@@ -53,5 +54,3 @@ Upon completing this project, you should be able to explain:
 2. Navigate to the project directory `0x05-processes_and_signals`.
 3. Ensure all scripts are executable using `chmod +x script_name`.
 4. Execute each script with appropriate arguments to perform the specified tasks.
-
-Happy scripting!
