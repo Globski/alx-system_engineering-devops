@@ -1,7 +1,8 @@
 # System-Engineering Devops - Processes and Signals
 
 ## Description
-In this project, you'll explore the concepts of processes and signals in the context of shell scripting. Understanding how processes work and how signals can be used to communicate with them is crucial for effective process management and automation.
+
+This project focuses on the concepts of processes and signals in shell scripting. Understanding how processes work and how signals can be used to communicate with them is crucial for effective process management and automation.
 
 ## Project Structure
 
