@@ -6,4 +6,4 @@
 # -n : Numeric-only IP addresses (no DNS)
 # -v : Verbose mode
 # -s : Source address (localhost)
-nc -lvnp 98
+nc -l localhost 98
