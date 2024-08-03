@@ -104,3 +104,4 @@ After completing this project, you should be able to explain:
    Hello world
    test
    ```
+**Notes:** The text sent from the telnet terminal will be displayed in the terminal running the script.
