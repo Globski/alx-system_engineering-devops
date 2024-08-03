@@ -56,11 +56,35 @@ sudo apt-get install shellcheck
 ```
 
 **Using ShellCheck**
-Once ShellCheck is installed, you can run it on a shell script by using the command:
 
+Once ShellCheck is installed, you can run it on a shell script by using the command:
 ```bash
 shellcheck your_script.sh
 ```
+
+**Clone the repository:**
+   ```bash
+   git clone <repository_url>
+   ```
+
+**Navigate to the project directory:**
+   ```bash
+   cd 0x04-loops_conditions_parsing
+   ```
+
+**Make the scripts executable:**
+   ```bash
+   chmod +x <script_name>
+   ```
+
+**Run the scripts:**
+   ```bash
+   ./<script_name>
+   ```
+
+## Additional Note
+
+- Avoid disrupting system functionality by reverting any changes made to configuration settings after testing.
 
 ## Tasks
 
@@ -136,28 +160,3 @@ shellcheck your_script.sh
 ### 14. Dig the data
 - **File:** `14-dig_the_data`
 - **Description:** Write a Bash script that groups visitors by IP address and HTTP status code, sorts the data by the number of occurrences, and displays it in the required format.
-
-## Additional Note
-
-- Avoid disrupting system functionality by reverting any changes made to configuration settings after testing.
-
-## How to Use
-
-1. Clone the repository:
-   ```bash
-   git clone <repository_url>
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd 0x04-loops_conditions_parsing
-   ```
-3. Make the scripts executable:
-   ```bash
-   chmod +x <script_name>
-   ```
-4. Run the scripts:
-   ```bash
-   ./<script_name>
-   ```
-
-Happy scripting!
