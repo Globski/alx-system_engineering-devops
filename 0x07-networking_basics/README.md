@@ -41,6 +41,3 @@ After completing this project, you should be able to explain:
 - Navigate to the project directory 0x07-networking_basics.
 - Ensure all scripts are executable using chmod +x script_name.
 - Execute each script with appropriate arguments to perform the specified tasks.
-
-Explore the world of networking basics and enhance your understanding of how information travels across networks!
-
