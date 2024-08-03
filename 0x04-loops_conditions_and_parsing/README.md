@@ -25,14 +25,14 @@ This project is designed to teach fundamental concepts of Bash scripting, includ
 
 ## Environment
 
-- All files will be interpreted on Ubuntu 20.04 LTS.
-- Shell scripts must pass Shellcheck without errors.
+- Ubuntu 20.04 LTS.
+-  Shellcheck (version 0.7.0)
 
 ## Requirements
 
 - All files should end with a new line.
 - All Bash script files must be executable.
-- Your Bash script must pass Shellcheck (version 0.7.0) without any error
+- Shell scripts must pass Shellcheck without errors.
 - The first line of all Bash scripts should be exactly `#!/usr/bin/env bash`.
 
 ## Learning Objectives
@@ -44,6 +44,23 @@ After completing this project, you should be able to explain:
 - Parsing techniques using cut, case statements, and file comparison operators.
 - Writing portable Bash scripts (What is the advantage of using #!/usr/bin/env bash over #!/bin/bash).
 - Importance of passing Shellcheck for script validation.
+
+## How to use
+
+**Installation**
+For Ubuntu/Debian:
+
+```bash
+sudo apt-get update
+sudo apt-get install shellcheck
+```
+
+**Using ShellCheck**
+Once ShellCheck is installed, you can run it on a shell script by using the command:
+
+```bash
+shellcheck your_script.sh
+```
 
 ## Tasks
 
