@@ -95,12 +95,49 @@ This project involves gathering data from a REST API and exporting it in differe
             - TOTAL_NUMBER_OF_TASKS: total number of tasks, which is the sum of completed and non-completed tasks
         - Display the title of completed tasks: `TASK_TITLE`
 
+Example:
+```bash
+sylvain@ubuntu$ python3 0-gather_data_from_an_API.py 2
+Employee Ervin Howell is done with tasks(8/20):
+     distinctio vitae autem nihil ut molestias quo
+     voluptas quo tenetur perspiciatis explicabo natus
+     aliquam aut quasi
+     veritatis pariatur delectus
+     nemo perspiciatis repellat ut dolor libero commodi blanditiis omnis
+     repellendus veritatis molestias dicta incidunt
+     excepturi deleniti adipisci voluptatem et neque optio illum ad
+     totam atque quo nesciunt
+sylvain@ubuntu$ python3 0-gather_data_from_an_API.py 4
+Employee Patricia Lebsack is done with tasks(6/20):
+     odit optio omnis qui sunt
+     doloremque aut dolores quidem fuga qui nulla
+     sint amet quia totam corporis qui exercitationem commodi
+     sequi dolorem sed
+     eum ipsa maxime ut
+     tempore molestias dolores rerum sequi voluptates ipsum consequatur
+sylvain@ubuntu$
+sylvain@ubuntu$ python3 0-gather_data_from_an_API.py 4 | tr " " "S" | tr "\t" "T" 
+EmployeeSPatriciaSLebsackSisSdoneSwithStasks(6/20):
+TSoditSoptioSomnisSquiSsunt
+TSdoloremqueSautSdoloresSquidemSfugaSquiSnulla
+TSsintSametSquiaStotamScorporisSquiSexercitationemScommodi
+TSsequiSdoloremSsed
+TSeumSipsaSmaximeSut
+TStemporeSmolestiasSdoloresSrerumSsequiSvoluptatesSipsumSconsequatur
+sylvain@ubuntu$
+```
+
 2. **Export to CSV**
     - Using what you did in the task #0, extend your Python script to export data in the CSV format.
     - Requirements:
         - Records all tasks that are owned by this employee
         - Format must be: `"USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"`
         - File name must be: `USER_ID.csv`
+Example:
+```bash
+sylvain@ubuntu$ python3 1-export_to_CSV.py 2
+sylvain@ubuntu$ cat 2.csv
+```
 
 3. **Export to JSON**
     - Using what you did in the task #0, extend your Python script to export data in the JSON format.
@@ -108,6 +145,11 @@ This project involves gathering data from a REST API and exporting it in differe
         - Records all tasks that are owned by this employee
         - Format must be: `{ "USER_ID": [ {"task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS, "username": "USERNAME"}}, ... ]}`
         - File name must be: `USER_ID.json`
+Example:
+```bash
+sylvain@ubuntu$ python3 2-export_to_JSON.py 2
+sylvain@ubuntu$ cat 2.json
+```
 
 4. **Dictionary of list of dictionaries**
     - Using what you did in the task #0, extend your Python script to export data in the JSON format.
@@ -116,3 +158,8 @@ This project involves gathering data from a REST API and exporting it in differe
         - Format must be: `{ "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ], "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ]}`
         - File name must be: `todo_all_employees.json`
 
+Example:
+```bash
+sylvain@ubuntu$ python3 3-dictionary_of_list_of_dictionaries.py
+sylvain@ubuntu$ cat todo_all_employees.json
+```
