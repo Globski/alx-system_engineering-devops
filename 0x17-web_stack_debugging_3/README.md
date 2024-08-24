@@ -1,4 +1,4 @@
-System Engineering Devops - Web stack debugging #3
+# System Engineering Devops - Web stack debugging #3
 
 ## Project Description
 This project involves debugging an Apache server that is returning a 500 Internal Server Error. Using `strace`, you will diagnose the issue, apply a fix manually, and then automate the fix using Puppet.
