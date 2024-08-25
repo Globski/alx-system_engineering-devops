@@ -10,7 +10,7 @@ This project involves debugging an Apache server that is returning a 500 Interna
 
 | Task                               | Description                                                        | Source Code                                |
 |------------------------------------|--------------------------------------------------------------------|--------------------------------------------|
-| **0. Strace is Your Friend**       | Use `strace` to find why Apache returns a 500 error. Fix the issue and automate it using Puppet. | [0-strace_is_your_friend.pp](path/to/0-strace_is_your_friend.pp) |
+| **0. Strace is Your Friend**       | Use `strace` to find why Apache returns a 500 error. Fix the issue and automate it using Puppet. | [0-strace_is_your_friend.pp](./0-strace_is_your_friend.pp) |
 
 ## Learning Objectives
 
