@@ -43,7 +43,7 @@ This project focuses on debugging a web stack, specifically improving the perfor
    ```
 
 2. **Install Puppet-lint:**
-
+  Ensure Ruby is installed, as puppet-lint requires it.
    ```bash
    sudo apt-get install -y ruby
    gem install puppet-lint -v 2.1.1
