@@ -81,3 +81,26 @@ This project focuses on debugging a web stack, specifically improving the perfor
   su - holberton
   head /etc/passwd
   ```
+## Tasks
+
+### 0. Sky is the limit, let's bring that limit higher
+- **Objective:** Debug the Nginx web server to handle 2000 requests with 100 concurrent connections using ApacheBench.
+- **Details:** We observed that the server is not performing well under pressure with 943 failed requests. The task involves using Puppet to fix the server's configuration to achieve 0 failed requests.
+- **Commands:**
+  ```bash
+  ab -c 100 -n 2000 localhost/
+  puppet apply 0-the_sky_is_the_limit_not.pp
+  ```
+- **Directory:** `0x1B-web_stack_debugging_4`
+- **0-the_sky_is_the_limit_not.pp:** Puppet script to fix Nginx server under load.
+
+### 1. User limit
+- **Objective:** Modify the OS configuration to allow the `holberton` user to log in and open files without encountering the "Too many open files" error.
+- **Details:** The task involves using Puppet to adjust the system limits so the user can operate without restrictions.
+- **Commands:**
+  ```bash
+  su - holberton
+  puppet apply 1-user_limit.pp
+  ```
+- **Directory:** `0x1B-web_stack_debugging_4`
+- **1-user_limit.pp:** Puppet script to modify OS configuration for user limits.
