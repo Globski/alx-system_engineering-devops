@@ -32,82 +32,154 @@ This project focuses on debugging a web stack, specifically improving the perfor
 - **Nginx:** The server should be running and properly configured for benchmarking.
 - **ApacheBench:** Install ApacheBench for performance testing.
 
-### How to Use
-### Installation
+## How to Use
+
+#### Installation
 
 1. **Install Puppet:**
+
    ```bash
    sudo apt-get install -y puppet
    ```
 
 2. **Install Puppet-lint:**
+
    ```bash
    sudo apt-get install -y ruby
    gem install puppet-lint -v 2.1.1
    ```
-   To check a Puppet manifest for lint errors:
 
-    ```bash
-    $ puppet-lint [filename].pp
-    ```
+3. **Check a Puppet manifest for lint errors:**
 
-### Applying Manifests
-1. **Fix Nginx configuration:**
-   - First, test the server's performance with ApacheBench:
+   ```bash
+   puppet-lint [filename].pp
+   ```
+
+#### Applying Manifests
+
+1. **Fix Nginx Configuration:**
+
+   - **Test Server Performance:**
+     
+     First, test the server’s performance using ApacheBench:
+
      ```bash
      ab -c 100 -n 2000 localhost/
      ```
-     If you observe many failed requests, proceed with the following steps.
-   - Navigate to the Nginx error log directory and check for errors:
+
+     If many requests fail, proceed with the following steps.
+
+   - **Check Nginx Error Logs:**
+
+     Navigate to the Nginx error log directory and check for errors:
+
      ```bash
      cd /var/log/nginx
      cat error.log
      ```
-   - If you see "too many open files" errors, you need to adjust the Nginx configuration.
-   - Open the Nginx default configuration file:
+
+     If you see "too many open files" errors, adjust the Nginx configuration.
+
+   - **Adjust Nginx Configuration:**
+
+     Open the Nginx default configuration file:
+
      ```bash
-     sudo vi /etc/nginx
+     sudo vi /etc/nginx/nginx.conf
      ```
-   - Locate the `nginxfile` and increase the file descriptor limit to 4096:
+
+     Locate the nginx file and increase the file descriptor limit to 4096:
+
      ```bash
-      ULIMIT=" -n 4096"
+     ULIMIT=" -n 4096"
      ```
-   - Save the changes and exit the editor.
-   
-   - Restart the Nginx service:
+
+     Save the changes and exit the editor.
+
+   - **Restart Nginx Service:**
+
      ```bash
      sudo service nginx restart
      ```
-     
-1. **Fix Nginx configuration:**
-    - Apply the Puppet manifest to automate these configurations:
+
+   - **Apply Puppet Manifest:**
+
+     Apply the Puppet manifest to automate these configurations:
+
      ```bash
      sudo puppet apply 0-the_sky_is_the_limit_not.pp
      ```
 
-2. **Change OS file limits:**
-   - If the `holberton` user encounters the "Too many open files" error, modify the system limits:
+2. **Change OS File Limits:**
+
+   If the holberton user encounters the "Too many open files" error, modify the system limits by applying a Puppet manifest:
+
+   ```bash
+   sudo puppet apply 1-user_limit.pp
+   ```
+
+#### Task 1: Limit Process to Run
+
+1. **Switch to holberton User:**
+
+   ```bash
+   su - holberton
+   ```
+
+   If the "Too many open files" error occurs, it means the user has exceeded the file limits.
+
+2. **Modify System Limits:**
+
+   - Navigate to the security configuration directory:
+
      ```bash
-     sudo puppet apply 1-user_limit.pp
+     cd /etc/security
+     vi limits.conf
      ```
 
-### Testing
+   - **Set File Limits:**
 
-- **Benchmark Nginx:**
-  Use ApacheBench to send 2000 requests with 100 concurrent connections to test the server's performance.
-  ```bash
-  ab -c 100 -n 2000 localhost/
-  ```
- The goal is to have 0 failed requests.
- 
-- **Check file limits for user:**
-  Log in as `holberton` and check for any errors when opening files.
-  ```bash
-  su - holberton
-  head /etc/passwd
-  ```
- 
-   
+     - **Hard Limit:** The maximum number of files the user can open. Set this to 4000 for the `holberton` user.
+     - **Soft Limit:** The minimum number of files the root user can open. Set this to 5000. Note that the soft limit must not exceed the hard limit.
+
+     Example configuration:
+
+     ```
+     holberton hard nofile 4000
+     root soft nofile 5000
+     ```
+
+   - Save the changes and exit the editor.
+
+3. **Re-login as holberton User:**
+
+   ```bash
+   su - holberton
+   ```
+
+   Now the user should have the adjusted file limits.
+
+#### Testing
+
+1. **Benchmark Nginx:**
+
+   Use ApacheBench to send 2000 requests with 100 concurrent connections to test the server's performance:
+
+   ```bash
+   ab -c 100 -n 2000 localhost/
+   ```
+
+   The goal is to have 0 failed requests.
+
+2. **Check File Limits for User:**
+
+   Log in as the `holberton` user and check for any errors when opening files:
+
+   ```bash
+   su - holberton
+   ```
+
+   If no errors occur, the file limits are correctly configured.
 
 ## Tasks
 
