@@ -185,6 +185,7 @@ This project focuses on debugging a web stack, specifically improving the perfor
 
    ```bash
    su - holberton
+   head /etc/passwd
    ```
 
    If no errors occur, the file limits are correctly configured.
