@@ -104,3 +104,57 @@ This project focuses on debugging a web stack, specifically improving the perfor
   ```
 - **Directory:** `0x1B-web_stack_debugging_4`
 - **1-user_limit.pp:** Puppet script to modify OS configuration for user limits.
+
+## Additional Notes
+**Benchmarking** is the process of measuring and evaluating the performance of a system, application, or component under a specific workload.
+- The goal is to assess how well the system performs under various conditions, often comparing it against a standard or against other systems.
+- Benchmarking helps identify bottlenecks, optimize performance, and ensure that the system meets the required performance standards.
+
+- **Identify Performance Bottlenecks:** Helps in locating where the system slows down under stress.
+- **Optimize Resources:** Ensures that resources (CPU, memory, network) are used efficiently.
+- **Capacity Planning:** Helps in planning for future growth by understanding the limits of the current setup.
+- **Compare Systems:** Evaluate different systems or configurations to determine the best option.
+
+**ApacheBench** (often abbreviated as `ab`) is a popular benchmarking tool that allows you to simulate multiple HTTP requests to a web server and measure how well the server performs. It is particularly useful for stress testing and performance tuning of web servers.
+
+- **Simulate Multiple Users:** ApacheBench can simulate many users making requests to the server at the same time.
+- **Measure Response Times:** It provides detailed statistics on how long it takes for the server to respond to requests.
+- **Test Server Limits:** Helps determine the maximum number of requests a server can handle before performance degrades.
+- **Assess Throughput:** Measures how many requests per second the server can handle.
+
+#### How ApacheBench Works:
+
+ApacheBench works by sending a specified number of HTTP requests to a web server and then collecting performance data. For example, you can use ApacheBench to simulate 1000 requests with 100 concurrent users. The tool will report back with statistics such as:
+
+- **Requests per second:** How many requests the server handled per second.
+- **Time per request:** The average time taken for the server to respond to a single request.
+- **Transfer rate:** The amount of data the server transferred per second.
+
+#### Example Command:
+
+```bash
+ab -n 1000 -c 100 http://example.com/
+```
+
+- **-n 1000:** The total number of requests to perform (1000 requests in this case).
+- **-c 100:** The number of multiple requests to perform at a time (100 concurrent users).
+- **http://example.com/**: The target URL to which the requests will be sent.
+
+#### Output Analysis:
+
+After running ApacheBench, you'll receive an output similar to this:
+
+```
+Concurrency Level:      100
+Time taken for tests:   3.567 seconds
+Complete requests:      1000
+Failed requests:        0
+Requests per second:    280.43 [#/sec] (mean)
+Time per request:       356.72 [ms] (mean)
+Transfer rate:          123.67 [Kbytes/sec] received
+```
+
+- **Requests per second:** Indicates the throughput of the server.
+- **Time per request:** Shows how long, on average, it took to complete a request.
+- **Transfer rate:** Indicates the data rate of the responses.
+
