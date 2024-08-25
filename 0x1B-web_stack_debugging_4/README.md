@@ -41,12 +41,12 @@ This project focuses on debugging a web stack, specifically improving the perfor
 
 1. **Install Puppet:**
    ```bash
-   apt-get install -y puppet
+   sudo apt-get install -y puppet
    ```
 
 2. **Install Puppet-lint:**
    ```bash
-   apt-get install -y ruby
+   sudo apt-get install -y ruby
    gem install puppet-lint -v 2.1.1
    ```
    To check a Puppet manifest for lint errors:
