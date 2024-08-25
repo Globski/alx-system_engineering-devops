@@ -147,14 +147,14 @@ This project focuses on debugging a web stack, specifically improving the perfor
 
    - **Set File Limits:**
 
-     - **Hard Limit:** The maximum number of files the user can open. Set this to 4000 for the `holberton` user.
-     - **Soft Limit:** The minimum number of files the root user can open. Set this to 5000. Note that the soft limit must not exceed the hard limit.
+     - **Hard Limit:** The maximum number of files the user can open. Set this to 5000 for the `holberton` user.
+     - **Soft Limit:** The minimum number of files the root user can open. Set this to 4000. Note that the soft limit must not exceed the hard limit.
 
      Example configuration:
 
      ```
-     holberton hard nofile 4000
-     root soft nofile 5000
+     holberton hard nofile 5000
+     root soft nofile 4000
      ```
 
    - Save the changes and exit the editor.
