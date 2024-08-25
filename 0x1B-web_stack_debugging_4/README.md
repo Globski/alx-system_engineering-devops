@@ -56,16 +56,44 @@ This project focuses on debugging a web stack, specifically improving the perfor
     ```
 
 ### Applying Manifests
-
 1. **Fix Nginx configuration:**
-   ```bash
-   sudo puppet apply 0-the_sky_is_the_limit_not.pp
-   ```
+   - First, test the server's performance with ApacheBench:
+     ```bash
+     ab -c 100 -n 2000 localhost/
+     ```
+     If you observe many failed requests, proceed with the following steps.
+   - Navigate to the Nginx error log directory and check for errors:
+     ```bash
+     cd /var/log/nginx
+     cat error.log
+     ```
+   - If you see "too many open files" errors, you need to adjust the Nginx configuration.
+   - Open the Nginx default configuration file:
+     ```bash
+     sudo vi /etc/nginx
+     ```
+   - Locate the `nginxfile` and increase the file descriptor limit to 4096:
+     ```bash
+      ULIMIT=" -n 4096"
+     ```
+   - Save the changes and exit the editor.
+   
+   - Restart the Nginx service:
+     ```bash
+     sudo service nginx restart
+     ```
+     
+1. **Fix Nginx configuration:**
+    - Apply the Puppet manifest to automate these configurations:
+     ```bash
+     sudo puppet apply 0-the_sky_is_the_limit_not.pp
+     ```
 
 2. **Change OS file limits:**
-   ```bash
-   puppet apply 1-user_limit.pp
-   ```
+   - If the `holberton` user encounters the "Too many open files" error, modify the system limits:
+     ```bash
+     sudo puppet apply 1-user_limit.pp
+     ```
 
 ### Testing
 
@@ -74,13 +102,17 @@ This project focuses on debugging a web stack, specifically improving the perfor
   ```bash
   ab -c 100 -n 2000 localhost/
   ```
-
+ The goal is to have 0 failed requests.
+ 
 - **Check file limits for user:**
   Log in as `holberton` and check for any errors when opening files.
   ```bash
   su - holberton
   head /etc/passwd
   ```
+ 
+   
+
 ## Tasks
 
 ### 0. Sky is the limit, let's bring that limit higher
