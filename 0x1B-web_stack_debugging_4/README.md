@@ -33,30 +33,39 @@ This project focuses on debugging a web stack, specifically improving the perfor
 - **ApacheBench:** Install ApacheBench for performance testing.
 
 ## How to Use
-
 #### Installation
+0. **Install ApacheBench (ab)**
+    ```bash
+    sudo apt-get update
+    sudo apt-get install -y apache2
+    sudo service apache2 start
+    ```
 
-1. **Install Puppet:**
+1. **Install Nginx:**
+    ```bash
+    sudo apt-get update
+    sudo apt-get install -y nginx
+    sudo service nginx start
+    ```
 
+2. **Install Puppet:**
    ```bash
    sudo apt-get install -y puppet
    ```
 
-2. **Install Puppet-lint:**
+3. **Install Puppet-lint:**
   Ensure Ruby is installed, as puppet-lint requires it.
    ```bash
    sudo apt-get install -y ruby
    gem install puppet-lint -v 2.1.1
    ```
 
-3. **Check a Puppet manifest for lint errors:**
-
+4. **Check a Puppet manifest for lint errors:**
    ```bash
    puppet-lint [filename].pp
    ```
 
 #### Applying Manifests
-
 1. **Fix Nginx Configuration:**
 
    - **Test Server Performance:**
