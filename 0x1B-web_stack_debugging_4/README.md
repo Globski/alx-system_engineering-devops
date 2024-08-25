@@ -51,9 +51,9 @@ This project focuses on debugging a web stack, specifically improving the perfor
    ```
    To check a Puppet manifest for lint errors:
 
-  ```bash
-  $ puppet-lint [filename].pp
-  ```
+    ```bash
+    $ puppet-lint [filename].pp
+    ```
 
 ### Applying Manifests
 
@@ -106,9 +106,7 @@ This project focuses on debugging a web stack, specifically improving the perfor
 - **1-user_limit.pp:** Puppet script to modify OS configuration for user limits.
 
 ## Additional Notes
-**Benchmarking** is the process of measuring and evaluating the performance of a system, application, or component under a specific workload.
-- The goal is to assess how well the system performs under various conditions, often comparing it against a standard or against other systems.
-- Benchmarking helps identify bottlenecks, optimize performance, and ensure that the system meets the required performance standards.
+**Benchmarking** is the process of measuring and evaluating the performance of a system, application, or component under a specific workload. The goal is to assess how well the system performs under various conditions, often comparing it against a standard or against other systems. Benchmarking helps identify bottlenecks, optimize performance, and ensure that the system meets the required performance standards.
 
 - **Identify Performance Bottlenecks:** Helps in locating where the system slows down under stress.
 - **Optimize Resources:** Ensures that resources (CPU, memory, network) are used efficiently.
