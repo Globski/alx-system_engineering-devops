@@ -118,14 +118,6 @@ This project focuses on debugging a web stack, specifically improving the perfor
      sudo puppet apply 0-the_sky_is_the_limit_not.pp
      ```
 
-2. **Change OS File Limits:**
-
-   If the holberton user encounters the "Too many open files" error, modify the system limits by applying a Puppet manifest:
-
-   ```bash
-   sudo puppet apply 1-user_limit.pp
-   ```
-
 #### Task 1: Limit Process to Run
 
 1. **Switch to holberton User:**
@@ -167,6 +159,13 @@ This project focuses on debugging a web stack, specifically improving the perfor
 
    Now the user should have the adjusted file limits.
 
+4. **Change OS File Limits by applying a Puppet manifest:**
+
+   If the holberton user encounters the "Too many open files" error, modify the system limits by applying a Puppet manifest:
+
+   ```bash
+   sudo puppet apply 1-user_limit.pp
+   ```
 #### Testing
 
 1. **Benchmark Nginx:**
