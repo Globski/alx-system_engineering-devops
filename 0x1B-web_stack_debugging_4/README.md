@@ -94,7 +94,7 @@ This project focuses on debugging a web stack, specifically improving the perfor
      Open the Nginx default configuration file:
 
      ```bash
-     sudo vi /etc/nginx/nginx.conf
+     sudo vi /etc/default/nginx
      ```
 
      Locate the nginx file and increase the file descriptor limit to 4096:
