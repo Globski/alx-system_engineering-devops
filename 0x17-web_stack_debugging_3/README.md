@@ -118,7 +118,7 @@ Suppose you found an issue where a PHP file has a typo in the extension, such as
    Use `grep` to search for the typo:
 
    ```bash
-   grep -ro "phpp" /var/www
+   sudo grep -ro "phpp" /var/www
    ```
 
 2. **Edit the File:**
