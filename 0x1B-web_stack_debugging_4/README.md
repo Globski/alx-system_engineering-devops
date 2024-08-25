@@ -100,7 +100,7 @@ This project focuses on debugging a web stack, specifically improving the perfor
      Locate the nginx file and increase the file descriptor limit to 4096:
 
      ```bash
-     ULIMIT=" -n 4096"
+     ULIMIT="-n 4096"
      ```
 
      Save the changes and exit the editor.
