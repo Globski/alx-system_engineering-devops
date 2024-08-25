@@ -36,61 +36,155 @@ This project involves debugging an Apache server that is returning a 500 Interna
   - Files will be checked with Puppet v3.4
 
 
-### Installation of Puppet-lint
-1. **Install Ruby:**
-   Ensure Ruby is installed, as `puppet-lint` requires it.
-   ```bash
-   $ apt-get install -y ruby
-   ```
-3. **Install puppet-lint:**
-   Install `puppet-lint`, a tool to check your Puppet manifests for style guide compliance.
-   ```bash
-   $ gem install puppet-lint -v 2.1.1
-   ```
+## How to Use
 
-5. **Diagnosing the Apache 500 Error:** **Use `strace` to trace the Apache process**
-   Identify the cause of the 500 Internal Server Error by attaching `strace` to the Apache process.
-   - First, find the Apache process ID (PID):
+### 1. Install Puppet-lint
+
+**Step 1: Install Ruby**
+
+Ensure Ruby is installed, as `puppet-lint` requires it.
+
+```bash
+sudo apt-get install -y ruby
+```
+
+**Step 2: Install Puppet-lint**
+
+Install `puppet-lint`, a tool to check your Puppet manifests for style guide compliance.
+
+```bash
+gem install puppet-lint -v 2.1.1
+```
+
+### 2. Diagnose and Fix Apache 500 Internal Server Error
+
+**Step 1: Use `strace` to Trace the Apache Process**
+
+1. **Identify Apache's Process IDs (PIDs):**
+
+   First, find the Apache process ID (PID). Typically, Apache runs multiple processes under the user `www-data`, and the master process under `root`.
+
    ```bash
    ps aux | grep apache2
    ```
-   - Attach `strace` to the identified PID:
-   ```bash
-   sudo strace -p <PID> -o strace.log
-   ```
-   - Replace `<PID>` with the actual PID of the Apache process. This command will log all system calls made by Apache to `strace.log`.
 
-   **Simulate the Error with `curl`:**
-   Trigger the error by making a request to the Apache server.
+   This command will list several processes, like:
+
    ```bash
-   curl -sI 127.0.0.1
-   ```
-   - This command sends a request to the server and retrieves only the headers. If Apache is returning a 500 error, it will be captured in the response.
-   
-   **Analyze the `strace.log` to identify the issue.:**
-   Open the `strace.log` file and look for any errors related to file access, permissions, or syntax issues that might be causing the 500 error.
-   ```bash
-   less strace.log
+   root       1155  0.0  0.5  345656  12152 ?        Ss   09:12   0:00 /usr/sbin/apache2 -k start
+   www-data   1159  0.0  0.4  353260  10364 ?        S    09:12   0:00 /usr/sbin/apache2 -k start
    ```
 
-7. **Apply the Fix:**
-   Implement the necessary fix manually to verify the issue is resolved.
-   - Example fix might include setting correct file permissions
-   - Replace `/path/to/file` with the actual path that was causing the issue.
+2. **Attach `strace` to the Apache Processes:**
+
+   Attach `strace` to the identified PIDs to monitor system calls. Start by attaching to the `root` process:
+
    ```bash
-   sudo chmod 755 /path/to/file
+   sudo strace -p 1155 -o strace_root.log
    ```
 
-8. **Automate with Puppet:**
-   Use the provided Puppet manifest (`0-strace_is_your_friend.pp`) to automate the fix:
+   Then, in another terminal, attach `strace` to the `www-data` process:
+
    ```bash
-   sudo puppet apply 0-strace_is_your_friend.pp
+   sudo strace -p 1159 -o strace_www.log
    ```
-9. **Verify the fix by checking the Apache server status:**
-   After applying the fix, verify that the 500 Internal Server Error is resolved by making another request to the server.
+
+   **Note:** Keep `strace` running in the `www-data` terminal as you'll need to capture system calls during an HTTP request.
+
+**Step 2: Simulate the 500 Error Using `curl`**
+
+In another terminal, trigger the 500 Internal Server Error by making a request to the Apache server:
+
+```bash
+curl -sI 127.0.0.1
+```
+
+This command sends a request to the server and retrieves only the headers. If Apache is returning a 500 error, it will be captured in the response.
+
+**Step 3: Analyze the `strace.log` to Identify the Issue**
+
+Open the `strace.log` file and look for errors related to file access, permissions, or syntax issues that might be causing the 500 error.
+
+```bash
+less strace.log
+```
+
+**Step 4: Apply the Fix**
+
+Suppose you found an issue where a PHP file has a typo in the extension, such as `.phpp` instead of `.php`. Here's how you would fix it:
+
+1. **Locate the File:**
+
+   Use `grep` to search for the typo:
+
    ```bash
-   curl -sI 127.0.0.1
+   grep -ro "phpp" /var/www
    ```
+
+2. **Edit the File:**
+
+   Once the file is located, open it in `vi` for editing:
+
+   ```bash
+   sudo vi /var/www/html/wp-settings.php
+   ```
+
+   In `vi`, search for the typo using:
+
+   ```bash
+   /phpp
+   ```
+
+   Correct the typo and save the file with the correct extension.
+
+**Step 5: Restart Apache to Apply the Fix**
+
+Restart the Apache server to apply the changes:
+
+```bash
+sudo service apache2 restart
+```
+
+**Step 6: Verify the Fix**
+
+Run the `curl` command again to check if the 500 error is resolved:
+
+```bash
+curl -sI 127.0.0.1
+```
+
+You should now receive a `200 OK` response, indicating the issue is resolved.
+
+### 3. Automate the Fix Using Puppet
+
+**Step 1: Apply the Puppet Manifest**
+
+Use the provided Puppet manifest (`0-strace_is_your_friend.pp`) to automate the fix:
+
+```bash
+sudo puppet apply 0-strace_is_your_friend.pp
+```
+
+**Step 2: Verify the Fix**
+
+After applying the fix, verify that the 500 Internal Server Error is resolved by making another request to the server.
+
+```bash
+curl -sI 127.0.0.1
+```
+
+You should receive a `200 OK` response, indicating the issue is resolved.
+
+---
+
+### Additional Notes
+
+**Common Issues to Look For:**
+
+- **File Permissions:** Look for "Permission denied" errors.
+- **Syntax Errors:** In PHP files, look for "Parse error" or "syntax error".
+- **Missing Files:** Look for "No such file or directory".
+- **Misconfigured PHP Paths:** Check for incorrect paths or filenames.
 
 ## Tasks
 ### Task 0: Strace is Your Friend
