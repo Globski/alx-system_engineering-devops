@@ -96,8 +96,7 @@ This project focuses on debugging a web stack, specifically improving the perfor
      ```bash
      sudo vi /etc/default/nginx
      ```
-
-     Locate the nginx file and increase the file descriptor limit to 4096:
+     Locate the nginx file and increase the Increase Nginx worker connections limit to 4096:
 
      ```bash
      ULIMIT="-n 4096"
