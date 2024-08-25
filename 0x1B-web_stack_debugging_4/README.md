@@ -9,10 +9,6 @@ This project focuses on debugging a web stack, specifically improving the perfor
 | 0. Sky is the limit, let's bring that limit higher | Debug the Nginx web server to handle 2000 requests with 100 concurrent connections using ApacheBench. | [0-the_sky_is_the_limit_not.pp](./0-the_sky_is_the_limit_not.pp)           |
 | 1. User limit                      | Modify the OS configuration to allow the `holberton` user to log in and open files without encountering "Too many open files" error. | [1-user_limit.pp](./1-user_limit.pp)                          |
 
-## Features
-- Fix Nginx server performance issues under load.
-- Modify OS configuration for user limits.
-
 ## Learning Objectives
 
 - Understanding web stack debugging.
