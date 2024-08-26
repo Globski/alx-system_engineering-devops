@@ -145,7 +145,7 @@ Trying 34.203.29.246...
 
 ### Important Considerations
 
-- **Avoid locking yourself out:** Always ensure that SSH (port 22) is allowed before enabling UFW.
+- **Avoid locking yourself out:** When you install UFW, port 22 is blocked by default so you should unblock it immediately before logging out of your server. If you ever deny port 22/TCP and log out of your server you will not be able to reconnect to your server via SSH
 - **Test from different origins:** If your school network has outgoing connection filters, SSH into web-02 to perform tests on web-01 to bypass the network firewall.
 - **Use caution with rules:** Misconfiguring the firewall could block necessary traffic or lock you out of the server.
 
