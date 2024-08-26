@@ -8,8 +8,8 @@ This project involves web stack debugging, where you will be diagnosing and fixi
 
 | Task | Description | Source Code |
 |------|-------------|-------------|
-| Task 0: Nginx likes port 80 | Using debugging skills to fix Nginx not listening on port 80. Write a Bash script to automate the fix. | [0-nginx_likes_port_80](https://github.com/your_username/alx-system_engineering-devops/blob/main/0x0E-web_stack_debugging_1/0-nginx_likes_port_80) |
-| Task 1: Make it sweet and short | Simplify the fix from Task 0 into a Bash script that is 5 lines or less. Ensure Nginx is installed, running on port 80, and the service status reflects this. | [1-debugging_made_short](https://github.com/your_username/alx-system_engineering-devops/blob/main/0x0E-web_stack_debugging_1/1-debugging_made_short) |
+| Task 0: Nginx likes port 80 | Using debugging skills to fix Nginx not listening on port 80. Write a Bash script to automate the fix. | [0-nginx_likes_port_80](./0-nginx_likes_port_80) |
+| Task 1: Make it sweet and short | Simplify the fix from Task 0 into a Bash script that is 5 lines or less. Ensure Nginx is installed, running on port 80, and the service status reflects this. | [1-debugging_made_short](./1-debugging_made_short) |
 
 ## Requirements
 - All files will be interpreted on Ubuntu 20.04 LTS
