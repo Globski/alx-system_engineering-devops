@@ -31,6 +31,35 @@ This project focuses on diagnosing and fixing issues in a simple web stack envir
    ```bash
    ./script_name.sh
    ```
+   
+4. **Verify Nginx Status:**
+   - After running the scripts, you can check Nginx's status using:
+   ```bash
+   service nginx status
+   ```
+   - To confirm that Nginx is listening on port 80, run:
+   ```bash
+   curl 0:80
+   ```
+
+### Debugging Section
+
+- **Issue Diagnosis:**
+  - If Nginx fails to start or listen on port 80, common issues might include:
+    - Incorrect configuration in `/etc/nginx/sites-available/default`.
+    - Missing or incorrect symlink between `/etc/nginx/sites-available/default` and `/etc/nginx/sites-enabled/default`.
+    - Another service might be occupying port 80.
+
+- **Troubleshooting Steps:**
+  1. **Check Nginx Configuration:**
+     - Inspect `/etc/nginx/sites-available/default` for the correct `listen` directive.
+     - Ensure the file is properly linked in `/etc/nginx/sites-enabled/`.
+  2. **Restart Nginx:**
+     - Use `service nginx restart` to apply changes and restart the service.
+  3. **Check Port 80 Usage:**
+     - Run `sudo lsof -i :80` to see if another process is using port 80.
+
+---
 
 ## Tasks
 
