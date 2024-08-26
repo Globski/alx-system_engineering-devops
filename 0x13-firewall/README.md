@@ -7,8 +7,8 @@ This project focuses on setting up and configuring firewall rules on a Linux ser
 
 | Task | Description | Source Code |
 |------|-------------|-------------|
-| 0. Block all incoming traffic but | Configure ufw to block all incoming traffic except for TCP ports 22 (SSH), 80 (HTTP), and 443 (HTTPS) on web-01. | `0-block_all_incoming_traffic_but` |
-| 1. Port forwarding | Configure web-01 so that its firewall redirects port 8080/TCP to port 80/TCP. Include the modified ufw configuration file. | `100-port_forwarding` |
+| 0. Block all incoming traffic but | Configure ufw to block all incoming traffic except for TCP ports 22 (SSH), 80 (HTTP), and 443 (HTTPS) on web-01. | [0-block_all_incoming_traffic_but](./0-block_all_incoming_traffic_but) |
+| 1. Port forwarding | Configure web-01 so that its firewall redirects port 8080/TCP to port 80/TCP. Include the modified ufw configuration file. | [100-port_forwarding](./100-port_forwarding) |
 
 ### Firewall
 
