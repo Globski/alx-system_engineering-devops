@@ -2,9 +2,9 @@
 
 ## Description
 
-This project involves web stack debugging, where you will be diagnosing and fixing issues in a simple web stack. The main focus will be on understanding network basics and applying debugging skills to resolve common issues that may arise in a web stack environment.
+This project focuses on diagnosing and fixing issues in a simple web stack environment, specifically related to ensuring that the Nginx web server is properly configured and running on port 80. The primary goal is to apply debugging skills to resolve common network and server issues that may prevent Nginx from functioning correctly.
 
-## Tasks Table
+## Project Structure
 
 | Task | Description | Source Code |
 |------|-------------|-------------|
