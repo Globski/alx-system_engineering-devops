@@ -1,7 +1,7 @@
 # 0x09. Web Infrastructure Design
 
 ## Description
-In this project, you will design and analyze various web infrastructures, focusing on understanding the different components and how they interact. This hands-on experience will help you improve your knowledge and skills in web infrastructure design.
+This project focused on designing and understanding different web infrastructure setups. The tasks involved creating diagrams and explanations for various web architectures, starting from a simple single-server setup to a more complex and secure multi-server infrastructure.
 
 ## Project Structure
 
