@@ -1,4 +1,4 @@
-# 0x09. Web Infrastructure Design
+# Web Infrastructure Design
 
 ## Description
 This project focused on designing and understanding different web infrastructure setups. The tasks involved creating diagrams and explanations for various web architectures, starting from a simple single-server setup to a more complex and secure multi-server infrastructure.
