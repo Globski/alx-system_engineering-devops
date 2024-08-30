@@ -29,13 +29,14 @@ The blog post covers the entire journey of a web request from the client (your b
 **Load-Balancer**: How a load balancer might distribute incoming traffic across multiple servers.
 - The server processes the request and sends back an HTTP response, which includes the requested resources (HTML, CSS, JavaScript, images, etc.).
 
-*Web Server**: The role of the web server in serving static content and handling requests.
+**Web Server**: The role of the web server in serving static content and handling requests.
 - The browser starts rendering the webpage by parsing the HTML, CSS, and JavaScript.
 
 **Application Server**: How the application server processes dynamic requests.
 - The browser continues to fetch and render any additional resources required to fully load the page.
 
 **Database**: How the application server interacts with the database to fetch and store data.
+
 ---
 
 ## Environment
