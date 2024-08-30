@@ -147,9 +147,3 @@ Scale up the existing web infrastructure.
 - GitHub repository: alx-system_engineering-devops
 - Directory: 0x09-web_infrastructure_design
 - File: 3-scale_up
-
-## How to Use
-- Clone the repository to your local machine.
-- Navigate to the project directory `0x09-web_infrastructure_design`.
-- Design and document the required web infrastructures.
-- Test your designs to ensure they meet the requirements.
