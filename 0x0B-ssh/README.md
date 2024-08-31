@@ -1,7 +1,7 @@
 # System-Engineering Devops - SSH
 
 ## Description
-This project aims to deepen your understanding of SSH (Secure Shell) and its usage in a DevOps environment. You will learn how to create and use SSH RSA key pairs to connect to remote servers securely. This is a critical skill for managing servers and ensuring secure communication over networks.
+This project aims to deepen your understanding of SSH (Secure Shell) and its usage in a DevOps environment. You will learn how to create and use SSH RSA key pairs to connect to remote servers securely, including using Puppet for automated configuration management. This is a critical skill for managing servers and ensuring secure communication over networks.
 
 ## Project Structure
 
@@ -32,11 +32,80 @@ git clone https://github.com/<your-username>/alx-system_engineering-devops.git
 cd alx-system_engineering-devops/0x0B-ssh
 ```
 
-**Ensure Scripts are Executable:**
-```sh
-chmod +x 0-use_a_private_key
-chmod +x 1-create_ssh_key_pair
+**Task 0: Use a Private Key**
+- Connect to a remote server using a private key.
 ```
+ssh -i ~/.ssh/school ubuntu@172.17.0.34
+```
+- Replace `172.17.0.34` with your actual server IP address.
+
+**Task 1: Create an SSH Key Pair**
+- Generate an RSA key pair.
+```
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/school -N betty
+```
+
+**Task 2: Client Configuration File**
+- Configure your SSH client to use the private key and refuse password authentication.
+
+**Configuration File (`~/.ssh/config`):**
+```
+Host *
+  IdentityFile ~/.ssh/school
+  PasswordAuthentication no
+```
+- Make sure to add this configuration to your `~/.ssh/config` file.
+
+**Task 3: Let Me In!**
+- Add the provided SSH public key to your server to allow connections using the `ubuntu` user.
+
+**Steps:**
+**Connect to your server using SSH:**
+   ```bash
+   ssh ubuntu@<server-ip>
+   ```
+   Replace `<server-ip>` with your actual server IP address.
+
+**Create and set up the `.ssh` directory:**
+   ```bash
+   mkdir -p ~/.ssh
+   chmod 700 ~/.ssh
+   ```
+
+**Add the public key to `authorized_keys`:**
+   ```bash
+   echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNdtrNGtTXe5Tp1EJQop8mOSAuRGLjJ6DW4PqX4wId/Kawz35ESamp" >> ~/.ssh/authorized_keys
+   chmod 600 ~/.ssh/authorized_keys
+   ```
+
+**Set permissions for key files:**
+   ```bash
+   chmod 600 ~/.ssh/school
+   chmod 644 ~/.ssh/school.pub
+   ```
+
+**Task 4: Client Configuration File (w/ Puppet)**
+- Use Puppet to automate the SSH client configuration.
+
+**Puppet Manifest (`100-puppet_ssh_config.pp`):**
+**Apply the Puppet manifest:**
+   ```bash
+   sudo puppet apply 100-puppet_ssh_config.pp
+   ```
+- This will configure your SSH client to use the specified private key and disable password authentication.
+
+
+## Additional Notes
+
+**File Permissions:**
+   Ensure that your SSH key files and configuration files have the correct permissions to avoid security issues.
+   
+**Puppet Installation:**
+   Ensure Puppet is installed on your system. You can install it using:
+   ```bash
+   sudo apt-get update
+   sudo apt-get install puppet
+   ```
 
 ## Tasks
 
