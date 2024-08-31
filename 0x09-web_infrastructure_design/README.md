@@ -7,10 +7,10 @@ This project focused on designing and understanding different web infrastructure
 
 | Task                   | Description                                                          | Deliverable                  |
 |------------------------|----------------------------------------------------------------------|------------------------------|
-| Simple web stack       | Design a one server web infrastructure.                              | [0-simple_web_stack](0-simple_web_stack), [0-simple_web_stack.png](0-simple_web_stack.png), [0-simple_web_stack.md](0-simple_web_stack.md) |
+| Simple web stack       | Design a one server web infrastructure.                              | [0-simple_web_stack](0-simple_web_stack), [0-simple_web_stack.jpg](0-simple_web_stack.png), [0-simple_web_stack.md](0-simple_web_stack.md) |
 | Distributed web infrastructure | Design a three server web infrastructure.                           | [1-distributed_web_infrastructure](1-distributed_web_infrastructure), [1-distributed_web_infrastructure.png](1-distributed_web_infrastructure.png), [1-distributed_web_infrastructure.md](1-distributed_web_infrastructure.md)  |
-| Secured and monitored web infrastructure | Design a secured and monitored web infrastructure.                           | [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure), [2-secured_and_monitored_web_infrastructure.png](2-secured_and_monitored_web_infrastructure.png), [2-secured_and_monitored_web_infrastructure.md](2-secured_and_monitored_web_infrastructure.md)  |
-| Scale up               | Scale up the existing web infrastructure.                           | [3-scale_up](3-scale_up), [3-scale_up.png](3-scale_up.png), [3-scale_up.md](3-scale_up.md)  |
+| Secured and monitored web infrastructure | Design a secured and monitored web infrastructure.                           | [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure), [2-secured_and_monitored_web_infrastructure.png](2-secured_and_monitored_web_infrastructure.jpg), [2-secured_and_monitored_web_infrastructure.md](2-secured_and_monitored_web_infrastructure.md)  |
+| Scale up               | Scale up the existing web infrastructure.                           | [3-scale_up](3-scale_up), [3-scale_up.png](3-scale_up.jpg), [3-scale_up.md](3-scale_up.md)  |
 
 
 ## Requirements
