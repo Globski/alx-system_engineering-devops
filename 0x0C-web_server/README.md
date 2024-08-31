@@ -3,7 +3,6 @@
 ## Description
 This project involves setting up and configuring a web server using various tasks, including file transfer, installing Nginx, configuring domain names, redirection, custom error pages, and automating server configuration with Puppet. The objective is to understand the role of web servers, DNS, HTTP requests, and automation tools in a real-world scenario.
 
-
 ## Project Structure
 
 | Task | Description | Source Code |
@@ -15,35 +14,98 @@ This project involves setting up and configuring a web server using various task
 | 4 | Not found page 404 | [4-not_found_page_404](4-not_found_page_404) |
 | 5 | Install Nginx web server (w/ Puppet) | [7-puppet_install_nginx_web_server.pp](7-puppet_install_nginx_web_server.pp) |
 
-#### Learning Objectives
+## Learning Objectives
 
 - Understand the role of web servers and how to configure them.
 - Learn about DNS and different record types.
 - Use Puppet to automate server configuration.
 - Implement HTTP redirection and custom error pages.
 
-#### Environment
+## Environment
 
 - Ubuntu 16.04 LTS
 - Puppet 4.10 or higher
 - Nginx 1.10 or higher
 
-#### Requirements
+## Requirements
 
 - Scripts must pass Shellcheck (version 0.3.7) without any errors.
 - All scripts must be executable.
 - All files must end with a new line.
 
-#### How to Use
+## How to Use
 
-1. Clone the repository to your local machine.
-2. Navigate to the project directory.
-3. Follow the instructions for each task to configure your server as required.
-4. **Ensure Your Bash Script is Executable:**
+**Task 0: Transfer a File to Your Server**
+- Create a Bash script to transfer a file from your local machine to a remote server using `scp`.
+
+**Usage:**
+- Ensure the script is executable: `chmod +x 0-transfer_file`
+- Run the script with the appropriate parameters:
    ```bash
-   chmod +x 88-script_example
+   ./0-transfer_file some_page.html 8.8.8.8 sylvain /path/to/private_key
    ```
-### Tasks
+- Verify the file transfer by checking the server’s home directory.
+
+**Task 1: Install Nginx Web Server**
+- Install and configure Nginx on your server to serve a page with "Hello World!" at the root.
+
+**Usage:**
+- Ensure the script is executable: `chmod +x 1-install_nginx_web_server`
+- Run the script on your server: `./1-install_nginx_web_server`
+- Verify the installation by accessing `http://localhost` or the server’s IP.
+
+**Task 2: Setup a Domain Name**
+- Register and configure a .tech domain to point to your server’s IP address.
+
+**Steps:**
+- Register a domain (e.g., `staybnb.tech`) with a registrar like Dotserve Inc.
+- Set up DNS A records to point to your server’s IP address (e.g., 35.153.232.79).
+- Verify the DNS propagation using a tool like `dig`:
+   ```bash
+   dig staybnb.tech
+   ```
+
+**Note:** DNS changes can take 1-2 hours to propagate.
+
+**Task 3: Redirection**
+- Configure Nginx to redirect `/redirect_me` to another URL with a "301 Moved Permanently" status.
+
+**Usage:**
+- Ensure the script is executable: `chmod +x 3-redirection`
+- Run the script: `./3-redirection`
+- Test the redirection by accessing `http://<server-ip>/redirect_me`.
+
+**Task 4: Not Found Page 404**
+- Configure Nginx to display a custom 404 error page with "Ceci n'est pas une page".
+
+**Usage:**
+- Ensure the script is executable: `chmod +x 4-not_found_page_404`
+- Run the script: `./4-not_found_page_404`
+- Test by accessing `http://<server-ip>/xyzfoo`.
+
+**Task 5: Install Nginx Web Server (w/ Puppet)**
+- Automate Nginx installation and configuration using Puppet.
+
+**Usage:**
+- Apply the Puppet manifest on your server.
+   ```bash
+   puppet apply 7-puppet_install_nginx_web_server.pp
+   ```
+- Verify the configuration by checking the server’s root page and redirection.
+
+**Cloning the Repository:**
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
+
+**Executing Scripts:**
+- Make sure each script is executable:
+   ```bash
+   chmod +x <script-name>
+   ```
+
+## Tasks
 #### Task 0: Transfer a File to Your Server
 
 **Description:**
