@@ -1,7 +1,7 @@
 # System-Engineering Devops - HTTPS SSL
 
 ## Description
-The project focuses on web server management and security using Ubuntu, HAproxy, SSL/TLS encryption, and Bash scripting.  Tasks include configuring DNS for domain zones, setting up HAproxy for SSL termination and HTTP to HTTPS redirection, and ensuring secure traffic management across web servers. The project aims to enhance understanding of HTTPS/SSL roles, encryption benefits, and practical skills in system administration and web security practices.
+The project focuses on web server management and security using Ubuntu, HAproxy, SSL/TLS encryption, and Bash scripting.  Tasks include configuring DNS for domain zones, setting up HAproxy for SSL termination and HTTP to HTTPS redirection, and ensuring secure traffic management across web servers. The goal is to understand the roles of HTTPS and SSL, the benefits of encryption, and practical system administration and web security practices.
 
 | Task | Description | Source Code |
 |------|-------------|-------------|
@@ -29,40 +29,98 @@ By the end of the project, you should be able to explain:
 ## How to Use
 
 ### Task 0: World Wide Web
+Configure and display DNS information about specified subdomains for your domain.
+**Configure Your Domain**:
+   - Log in to your domain registrar or DNS management console.
+   - Add DNS records for the following subdomains and their corresponding IP addresses:
+     - `www` → Load-balancer IP (e.g., `54.144.147.90`)
+     - `lb-01` → Load-balancer IP (e.g., `54.144.147.90`)
+     - `web-01` → Web server IP (e.g., `35.153.232.79`)
+     - `web-02` → Web server IP (e.g., `34.224.83.32`)
 
-1. **Configure Domain Zone**:
-   - Update your domain's DNS settings to point the following subdomains to their respective IP addresses:
-     - `www` to your load-balancer IP (`lb-01`)
-     - `lb-01` to your load-balancer IP (`lb-01`)
-     - `web-01` to your `web-01` IP address
-     - `web-02` to your `web-02` IP address
-
-2. **Bash Script (`0-world_wide_web`)**:
-   - Navigate to the directory containing `0-world_wide_web`.
-   - Run the script using `./0-world_wide_web domain_name [subdomain]`.
-   - Replace `domain_name` with your actual domain and optionally provide `subdomain` to get specific information.
-   - Example usage:
+**Run the DNS Information Script**:
+- Navigate to the directory containing `0-world_wide_web`.
+   - Replace `domain_name` with your actual domain
+   - Run the script to display DNS information
      ```bash
      ./0-world_wide_web holberton.online
+     ```
+   - Replace `subdomain` with your actual subdomain
+   - To check a specific subdomain, use:
+     ```bash
      ./0-world_wide_web holberton.online web-02
      ```
 
 ### Task 1: HAproxy SSL Termination
-
-1. **Generate SSL Certificate**:
+Set up HAproxy to terminate SSL and configure SSL certificates.
+1 **Generate SSL Certificate**:
    - Use `certbot` to generate an SSL certificate for the `www` subdomain.
+  - Install `certbot` if not already installed:
+     ```bash
+     sudo apt update
+     sudo apt install certbot
+     ```
+   - Generate the SSL certificate for your domain:
+     ```bash
+     sudo certbot certonly --standalone --preferred-challenges http --http-01-port 80 -d www.example.com
+     ```
 
-2. **HAproxy Configuration (`1-haproxy_ssl_termination`)**:
+**HAproxy Configuration (`1-haproxy_ssl_termination`)**:
+   - Open HAproxy’s configuration file:
+     ```bash
+     sudo vi /etc/haproxy/haproxy.cfg
+     ```
+   - Update the configuration to include SSL settings:
    - Update HAproxy configuration (`/etc/haproxy/haproxy.cfg`) with the settings provided in `1-haproxy_ssl_termination`.
    - Ensure HAproxy is listening on TCP port 443 and configured to terminate SSL for the `www` subdomain.
-   - Restart HAproxy after updating the configuration.
+
+**Validate Configuration**:
+   - Check the HAproxy configuration file for errors:
+     ```bash
+     sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+     ```
+**Restart HAproxy**:
+   - Restart HAproxy to apply changes:
+     ```bash
+     sudo service haproxy restart
+     ```
+
+**Verify SSL Setup**:
+   - Confirm the HTTPS setup is working:
+     ```bash
+     curl -sI holberton.online
+     ```
 
 ### Task 2: No Loophole in Your Website Traffic
-
-1. **Update HAproxy Configuration (`100-redirect_http_to_https`)**:
+Automatically redirect HTTP traffic to HTTPS using HAproxy.
+**Update HAproxy Configuration (`100-redirect_http_to_https`)**:
+   - Open the HAproxy configuration file:
+     ```bash
+     sudo vi /etc/haproxy/haproxy.cfg
+     ```
+   - Add the following line to the `www-http` frontend section to redirect HTTP to HTTPS:
+     ```haproxy
+     http-request redirect scheme https code 301 if !{ ssl_fc }
+     ```
    - Replace the existing HAproxy configuration (`/etc/haproxy/haproxy.cfg`) with the settings provided in `100-redirect_http_to_https`.
    - Ensure HAproxy redirects all HTTP traffic to HTTPS transparently with a `301 Moved Permanently` response.
-   - Restart HAproxy to apply the new configuration.
+
+**Validate Configuration**:
+   - Check the updated HAproxy configuration:
+     ```bash
+     sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+     ```
+**Restart HAproxy**:
+   - Restart HAproxy to apply redirection changes:
+     ```bash
+     sudo service haproxy restart
+
+**Verify Redirection**:
+   - Ensure that HTTP requests are redirected to HTTPS:
+     ```bash
+     curl -sIL http://www.example.com
+     ```
+
 
 # Tasks
 
