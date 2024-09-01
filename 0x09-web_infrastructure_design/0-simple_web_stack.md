@@ -1,4 +1,4 @@
-# Web infrastructure design
+# Simple web stack
 
 ## What is a Server?
 A server is a robust computer or software program that caters to other computers, known as clients, by providing services or resources over a network such as hosting websites, managing files, handling email, and ensuring secure network communication. The arrangement is termed the client-server model. Servers come in various types such as web servers (e.g., Apache HTTP Server), application servers (e.g., Apache Tomcat), database servers (e.g., MySQL), etc., each fulfilling specific functions like hosting websites, handling application logic, or managing data.
