@@ -41,7 +41,7 @@ This project focuses on network security and practical applications for sniffing
 2. **Download and Prepare the Script:**
    - Download the `user_authenticating_into_server` script from the GitHub repository:
      ```bash
-     wget 
+     wget https://github.com/Globski/alx-system_engineering-devops/blob/master/attack_is_the_best_defense/user_authenticating_into_server
      ```
    - Make the script executable:
      ```bash
