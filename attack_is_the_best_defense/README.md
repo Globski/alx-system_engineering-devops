@@ -9,7 +9,7 @@ This project focuses on network security and practical applications for sniffing
 
 | Task | Description | Source Code |
 |------|-------------|-------------|
-| **0** | **Network Sniffing**: Sniff network traffic and analyze it for sensitive information using tcpdump and Wireshark. | [user_authenticating_into_server](./0-sniffing/user_authenticating_into_server) |
+| **0** | **Network Sniffing**: Sniff network traffic and analyze it for sensitive information using tcpdump and Wireshark. | [0-sniffing](./0-sniffing) |
 | **1** | **Dictionary Attack**: Perform a dictionary attack on an SSH service running inside a Docker container using Hydra. | Docker Image: `sylvainkalache/264-1` |
 
 
@@ -88,7 +88,6 @@ This project focuses on network security and practical applications for sniffing
 
 4. **Password Dictionary Examples:**
    - Offer links or examples of common password dictionaries to use with Hydra. For instance, you might refer to well-known lists like [SecLists](https://github.com/danielmiessler/SecLists).
-
 5. **Install and Use Hydra:**
    - Install `hydra`:
      ```bash
