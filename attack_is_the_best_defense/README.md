@@ -186,9 +186,9 @@ hydra -l sylvain -P /path/to/password_dictionary.txt ssh://127.0.0.1:2222
 ```
 
 **Troubleshooting Tips:**
-**What to do if `tcpdump` isn't capturing traffic.**
+#### What to do if `tcpdump` isn't capturing traffic.
 - If tcpdump is not capturing traffic, ensure you have proper permissions and check network interfaces.
-**Issues with Docker container setup and how to resolve them.**
+#### Issues with Docker container setup and how to resolve them.
 - For Docker issues, verify that Docker is running and the container is properly started.
 
 
