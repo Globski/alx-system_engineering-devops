@@ -1,4 +1,4 @@
-# System-Engineering DevOps - CMD CHALLENGE
+# System-Engineering DevOps - Command line for the win
 
 ## Description
 

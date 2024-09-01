@@ -1,9 +1,7 @@
-
 # System-Engineering Devops - Web Infrastructure Design
 
 ## Description
 This project focused on designing and understanding different web infrastructure setups. The tasks involved creating diagrams and explanations for various web architectures, starting from a simple single-server setup to a more complex and secure multi-server infrastructure.
-
 ## Project Structure
 
 | Task                   | Description                                                          | Deliverable                  |
@@ -13,13 +11,12 @@ This project focused on designing and understanding different web infrastructure
 | Secured and monitored web infrastructure | Design a secured and monitored web infrastructure.                           | [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure), [2-secured_and_monitored_web_infrastructure.png](2-secured_and_monitored_web_infrastructure.jpg), [2-secured_and_monitored_web_infrastructure.md](2-secured_and_monitored_web_infrastructure.md)  |
 | Scale up               | Scale up the existing web infrastructure.                           | [3-scale_up](3-scale_up), [3-scale_up.jpg](3-scale_up.jpg), [3-scale_up.md](3-scale_up.md)  |
 
+## Background Context
+Web infrastructure design is critical to building scalable, reliable, and efficient web applications. Understanding the various components and their interactions helps in designing robust systems.
 
 ## Requirements
 
 - Diagrams should be clear and detailed.
-
-## Background Context
-Web infrastructure design is crucial for building scalable, reliable, and efficient web applications. Understanding the various components and their interactions helps in designing robust systems.
 
 ## Learning Objectives
 After completing this project, you should be able to explain:
