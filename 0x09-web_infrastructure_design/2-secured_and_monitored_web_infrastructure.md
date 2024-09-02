@@ -19,6 +19,7 @@ Implement comprehensive monitoring solutions to continuously track system health
 
 ## How the monitoring tool is collecting data
 Monitoring tools collect data such as CPU usage, memory usage, disk space, and network traffic. They can also monitor specific metrics like QPS (Queries Per Second) on a web server. Tools like Sumo Logic to collect and analyze data on server performance and security. 
+- **Examples**: Prometheus with Grafana for real-time data visualization.
 
 ## Explain what to do if you want to monitor your web server QPS
 To monitor QPS, you can use tools like Prometheus with Grafana, which collects and visualizes real-time data on how many queries your web server is handling.
