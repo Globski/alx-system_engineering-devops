@@ -27,9 +27,6 @@ This ensures that no server is overloaded. Load balancers use a variety of metho
 **Least Bandwidth:** Directs traffic to the server that is currently handling the least amount of bandwidth. This helps distribute the load based on the amount of data being processed.
 - **Example**: If server A is handling 1GB of bandwidth, server B is handling 500MB, and server C is handling 200MB, the load balancer will direct the next request to server C.
 
-Prioritize even load distribution, low latency, or session persistence. By configuring the load balancer with an appropriate algorithm, you can optimize the performance and reliability of your web infrastructure.
-
-
 ## Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both
 Load balancers can operate in either Active-Active or Active-Passive configurations. The main difference between active-active and active-passive setups for a load balancer lies in how they handle incoming traffic and provide redundancy and high availability.
 Choosing between Active-Active and Active-Passive setups depends on your specific needs for performance, cost, and redundancy.
