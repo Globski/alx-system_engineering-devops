@@ -8,6 +8,7 @@ Additionally, there are physical servers, dedicated hardware machines with compo
 ## What is the role of the domain name
 By giving users a memorable and simple-to-remember address, a domain name enables users to browse websites without having to memorize numerical IP addresses. For instance, the Domain Name System (DNS) maps the human-readable address www.foobar.com  into machine-readable IP addresses (like 80.142.74.130) making it simpler for consumers to remember and visit the website. 
 This translation is essential because, while humans navigate the web using domain names, computers and other network devices use IP addresses to identify each other and communicate on the internet.
+
 ## What type of DNS record www is in www.foobar.com
 The `www` in `www.foobar.com` is typically a subdomain CNAME (Canonical Name) record. This type of DNS record maps an alias name to the canonical domain name. For instance, `www.foobar.com` might be a CNAME for `foobar.com`, which is then resolved to an IP address by an A or AAAA record.
 
