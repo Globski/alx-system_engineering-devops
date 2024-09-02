@@ -1,9 +1,8 @@
 # Distributed web infrastructure
 
 ## What distribution algorithm your load balancer is configured with and how it work
-### Load-balancer
-Load balancers are often used by large websites and high-traffic web applications to distribute incoming traffic evenly across multiple web servers. 
-This ensures that no server is overloaded. Load balancers use a variety of methods to route incoming requests to the most appropriate server. This distribution eliminates the possibility of a bottleneck developing on any one server. Load balancers keep a constant eye on the back-end servers. By spreading the workload across multiple servers and using only healthy servers, they improve the overall performance, availability, and scalability of the online application by directing traffic only to servers that are working properly. The distribution algorithm used by a load balancer determines how requests are assigned to servers.
+### Load-balancer(HAProxy)
+Load balancers are often used by large websites and high-traffic web applications to distribute incoming traffic evenly across multiple web servers.  This ensures that no server is overloaded. Load balancers use a variety of methods to route incoming requests to the most appropriate server. This distribution eliminates the possibility of a bottleneck developing on any one server. Load balancers keep a constant eye on the back-end servers. By spreading the workload across multiple servers and using only healthy servers, they improve the overall performance, availability, and scalability of the online application by directing traffic only to servers that are working properly. The distribution algorithm used by a load balancer determines how requests are assigned to servers.
 
 #### Distribution Algorithms and how they work
 **Round Robin:** The load balancer distributes each incoming request to the next server in a circular order. After reaching the last server, it loops back to the first server.
