@@ -29,15 +29,18 @@ TCP/IP stands for Transmission Control Protocol/Internet Protocol. It is a set o
 This involves a three-way handshake
 
 ## SPOF
-A Single Point of Failure (SPOF) is a component whose failure can bring down the entire system. Examples include:
+A Single Point of Failure (SPOF) is a component whose failure can bring down the entire system.
+
+**Examples**
 - **Web server**: If the web server fails, the website becomes unavailable.
 - **Database**: If the database fails, data retrieval and updates are disrupted.
 - **Load balancer**: A single load balancer can be an SPOF if it fails. 
 
 **Load balancer** evenly distributes incoming traffic across multiple web servers. This practice ensures that no single server becomes overloaded it directs traffic to the server with the fewest active connections, to better balance the load.
 
-## Impact of SPOF:
+## Impact of SPOF
 #### Downtime when maintenance needed (like deploying new code web server needs to be restarted)
 - Essential services become unavailable during maintenance or failure. If you need to restart the web server for maintenance or to deploy new code, the site will be temporarily unavailable.  This downtime can affect the user experience and potentially lead to lost revenue.
+
 #### Cannot scale if too much incoming traffic
 - Limited infrastructure may struggle under high traffic, leading to performance degradation. If the infrastructure cannot handle high traffic, the website may become slow or unresponsive, resulting in a poor user experience. Without proper load balancing or scaling mechanisms, the system may fail under heavy load. This is because the capacity of the system is limited to a single server, which can lead to performance problems when traffic is high.
