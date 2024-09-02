@@ -45,6 +45,7 @@ One load balancer handles traffic while the other remains on standby, providing 
 - **Example**: If you have two load balancers (L1 and L2) in an Active-Passive setup, L1 handles all traffic while L2 remains in standby mode. If L1 fails, L2 will take over and start handling the traffic.
 
 ## How a database Primary-Replica (Master-Slave) cluster works
+Implementing a primary-replica (master-slave) database cluster can provide redundancy and failover capabilities, reducing the risk of data loss and improving availability.
 
 ## What is the difference between the Primary node and the Replica node in regard to the application
 The primary node handles all write operations such as inserts, updates, and deletes.
@@ -66,17 +67,10 @@ Single Point of Failure (SPOF) is any component or part of a system that, if it 
 ## Security issues (no firewall, no HTTPS)
 The lack of HTTPS and firewall protection makes the infrastructure vulnerable. 
 
-**Firewall:**
-A firewall is a security system that monitors and controls incoming and outgoing network traffic based on pre-defined security rules. It acts as a barrier between your internal network and external threats.
-Implement a firewall to protect each server (web server, application server, database server) from unauthorized access and to filter out malicious traffic.
-
 **Lack of Firewall**
 - Without a firewall, your server and system infrastructure are vulnerable to unauthorized access, malicious attacks, and potential security breaches. 
 - Systems without firewalls are more susceptible to attacks such as Distributed Denial of Service (DDoS) attacks, where the attacker overwhelms the server with traffic, causing service disruption.
 - A lack of firewall protection increases the risk of data breaches, where sensitive information can be accessed or stolen by malicious actors.
-
-**HTTPS:** HTTPS (Hypertext Transfer Protocol Secure) is an extension of HTTP that provides secure communication over a computer network by encrypting data using SSL/TLS protocols.
-Implement HTTPS to encrypt data transmitted between users and your server, ensuring secure communication and protecting sensitive information from interception and tampering.
 
 **Lack of HTTPS**
 - Without HTTPS, data transmitted between users and your server is sent in plaintext. This makes it vulnerable to interception and eavesdropping by attackers, who can capture and read sensitive information.
@@ -85,8 +79,7 @@ Implement HTTPS to encrypt data transmitted between users and your server, ensur
 - Without HTTPS, ISPs or other intermediaries might inject unwanted content or ads into web pages. 
  
 ## No monitoring
-Security Issues go unnoticed without proper monitoring tools. Monitoring helps detect issues early, provides insights into performance, and alerts you to potential failures before they impact users.
-Monitoring is a critical component of maintaining the health and security of your web infrastructure. The absence of monitoring tools can lead to several issues that might compromise the performance, security, and reliability of your systems. 
+Security Issues go unnoticed without proper monitoring tools. Monitoring helps detect issues early, provides insights into performance, and alerts you to potential failures before they impact users. Monitoring is a critical component of maintaining the health and security of your web infrastructure. The absence of monitoring tools can lead to several issues that might compromise the performance, security, and reliability of your systems. 
 
 **Undetected Issues**
 - Without monitoring, system failures, crashes, or malfunctions may go unnoticed until they cause significant disruption or downtime.
@@ -97,13 +90,3 @@ Monitoring is a critical component of maintaining the health and security of you
 - Diagnosing performance issues or identifying the root cause of problems becomes more challenging without performance metrics and historical data.
 - Without monitoring, security breaches or unauthorized access may go undetected, allowing attackers to exploit vulnerabilities without being noticed.
 - Lack of monitoring makes it difficult to detect and respond to security incidents in real-time, increasing the risk of data loss and system compromise.
-
-
-Implement comprehensive monitoring solutions to continuously track system health and activity, detect issues early, and ensure timely responses to potential problems.
-- Monitoring provides insights into system performance, including resource usage, response times, and traffic patterns.
-- Utilize monitoring tools to gather performance data, analyze trends, and make informed decisions regarding resource allocation and capacity planning.
-- Monitoring helps in identifying and responding to security threats and suspicious activities.
-- Implement security monitoring to detect and respond to potential threats and unauthorized activities promptly.
-
-
-
