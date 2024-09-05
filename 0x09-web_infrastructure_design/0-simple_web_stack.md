@@ -10,7 +10,7 @@ By giving users a memorable and simple-to-remember address, a domain name enable
 This translation is essential because, while humans navigate the web using domain names, computers and other network devices use IP addresses to identify each other and communicate on the internet.
 
 ## What type of DNS record www is in www.foobar.com
-The `www` in `www.foobar.com` is typically a subdomain CNAME (Canonical Name) record. This type of DNS record maps an alias name to the canonical domain name. For instance, `www.foobar.com` might be a CNAME for `foobar.com`, which is then resolved to an IP address by an A or AAAA record.
+The `www` in `www.foobar.com` is typically a subdomain CNAME (Canonical Name) record. This type of DNS record maps an alias name to the canonical domain name. For example, www.foobar.com might be a CNAME for foobar.com, which is then resolved to an IP address by an A or AAAA record.
 
 ## What is the role of the web server
 A web server is responsible for handling and responding to incoming HTTP/HTTPS requests from users' web browsers.
