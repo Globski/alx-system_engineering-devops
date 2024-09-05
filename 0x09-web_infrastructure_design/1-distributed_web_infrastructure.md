@@ -1,6 +1,6 @@
 # Distributed web infrastructure
 
-## What distribution algorithm your load balancer is configured with and how it work
+## What distribution algorithm your load balancer is configured with and how it works
 ### Load-balancer(HAProxy)
 Load balancers are often used by large websites and high-traffic web applications to distribute incoming traffic evenly across multiple web servers.  This ensures that no server is overloaded. Load balancers use a variety of methods to route incoming requests to the most appropriate server. This distribution eliminates the possibility of a bottleneck developing on any one server. Load balancers keep a constant eye on the back-end servers. By spreading the workload across multiple servers and using only healthy servers, they improve the overall performance, availability, and scalability of the online application by directing traffic only to servers that are working properly. The distribution algorithm used by a load balancer determines how requests are assigned to servers.
 
@@ -11,7 +11,7 @@ Load balancers are often used by large websites and high-traffic web application
 **Least Connections:** The load balancer directs traffic to the server with the fewest active connections. This algorithm helps balance the load more dynamically based on the current number of connections each server is handling.
 - **Example**: If server A has 10 active connections, server B has 5, and server C has 3, the load balancer will send the next request to server C.
 
-**Least Response Time:** The load balancer selects the server that responds the quickest to a health check request. This ensures that requests are sent to the server with the fastest response time, which can improve overall user experience.
+**Least Response Time:** The load balancer selects the server that responds the quickest to a health check request. This ensures that requests are sent to the server with the fastest response time, which can improve the overall user experience.
 - **Example**: If server A responds in 100ms, server B in 150ms, and server C in 200ms, the load balancer will send the request to server A.
 
 **Weighted Round Robin:** Similar to Round Robin, servers are assigned a weight based on their capacity. Servers with higher weights receive more requests.
@@ -41,11 +41,12 @@ One load balancer handles traffic while the other remains on standby, providing 
 - **Example**: If you have two load balancers (L1 and L2) in an Active-Passive setup, L1 handles all traffic while L2 remains in standby mode. If L1 fails, L2 will take over and start handling the traffic.
 
 ## How a database Primary-Replica (Master-Slave) cluster works
-Implementing a primary-replica (master-slave) database cluster can provide redundancy and failover capabilities, reducing the risk of data loss and improving availability.
 
-## What is the difference between the Primary node and the Replica node in regard to the application
-The primary node handles all write operations such as inserts, updates, and deletes.
-The replica node(s) handles read operations.
+A Primary-Replica (or Master-Slave) database cluster is a common setup that ensures data safety and smooth service operation. The main database (primary) handles incoming information, such as write operations (inserts, updates, deletes), and captures changes made using a process called change data capture, often through transaction logs to capture changes. These changes are then replicated to one or more replica (or slave) databases. There are two methods for replication: synchronous and asynchronous. In synchronous replication, the primary waits for the replicas to acknowledge the changes before committing, while in asynchronous replication, the primary does not wait for acknowledgments. Replica databases (slaves) keep copies of the data and serve read requests, distributing read load to offload traffic from the primary database. If the primary database goes down, the system can fail over to one of the replica databases to ensure continued service. This setup also provides handy features like backup and disaster recovery, as replicas can restore the data in case of loss or corruption on the primary, reducing data loss risk. Replicas get information from the primary in different ways: either waiting for confirmation or grabbing information as it comes. This kind of setup makes the entire database system more reliable and scalable, ensuring smooth operation even in the event of issues.
+
+## What is the difference between the Primary node and the Replica node regarding the application
+**Primary Node**
+The primary node is responsible for handling all write operations, including inserts, updates, and deletes. It is where any changes to the data are made, processing all transactions to ensure data consistency and integrity. The primary node is the authoritative source of the data and contains the most up-to-date information. On the other hand, the replica node(s) handles read operations, relieving the primary node of read traffic and improving overall query performance. It also provides redundancy and fault tolerance. In the event of a primary node failure, a replica node can be promoted to the primary role to ensure continuous service. Two additional benefits of the replica node are scalability and support for backup and recovery. Replica nodes can be used to horizontally scale the application by distributing read traffic across multiple nodes. Additionally, they serve as a backup and support disaster recovery by maintaining a copy of the data from the primary node. In summary, the primary node is responsible for write operations, data authority, and high availability, while the replica node primarily serves read operations, provides redundancy, scalability, and supports backup and recovery functions.
 
 ## Where are SPOF
 Single Point of Failure (SPOF) is any component or part of a system that, if it fails, can cause the entire system to fail. 
