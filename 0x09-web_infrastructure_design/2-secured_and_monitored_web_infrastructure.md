@@ -29,7 +29,7 @@ SSL Termination at the Load Balancer level means traffic between the load balanc
 The recommended approach is to implement end-to-end encryption by allowing SSL termination to occur at the backend servers rather than at the load balancer. This ensures that the traffic between the load balancer and the backend servers remains encrypted, providing a higher level of security for the internal network. Additionally, secure communication protocols, such as TLS, should be enforced to protect data in transit. 
 
 ## Why having only one MySQL server capable of accepting writes is an issue
-Having a single MySQL server for writes creates a bottleneck and a SPOF. If this server fails, no writes can be performed until it's restored, potentially causing data loss.
+Having a single MySQL server for writes creates a bottleneck and a SPOF. If this server fails or is overloaded, no writes can be performed until it's restored, potentially causing data loss. 
 
 ## Why having servers with all the same components (database, web server, and application server) might be a problem
 If all servers have the same components, resource allocation can be inefficient and failures can affect multiple services. This architecture lacks flexibility and scalability. Each server becomes an SPOF, making it more difficult to scale specific components independently. Splitting these roles across different servers allows for more efficient scaling and reduces the risk of failures affecting the entire system. To ensure redundancy and reduce SPOF, improving the system’s availability and resilience.
