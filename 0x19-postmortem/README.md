@@ -1,12 +1,11 @@
 # System-Engineering Devops - Postmortem
 
-
-![A1](https://github.com/user-attachments/assets/e1389448-8493-4cac-ad3a-e9891ec873fb)
+![Postmortem](https://github.com/user-attachments/assets/e1389448-8493-4cac-ad3a-e9891ec873fb)
 
 
 ## Description
 
-This project focuses on the importance of conducting incident postmortems in the field of DevOps and system administration. Postmortems provide teams with an opportunity to learn from outages, identify root causes, and implement corrective measures to prevent future incidents.
+This project focuses on the importance of conducting incident postmortems in the field of systems administration and DevOps. Postmortems allow teams to learn from outages, identify root causes, and take preventative measures to avoid such problems in the future.
 
 | Task | Description | Source Code |
 |------|-------------|-------------|
@@ -14,7 +13,7 @@ This project focuses on the importance of conducting incident postmortems in the
 
 ## Objective
 
-The goal of this project is to produce a comprehensive postmortem that captures the essential details of an incident, ensuring that valuable lessons are learned and shared.
+This project aims to produce a comprehensive post-mortem that captures the essential details of an incident and ensures that valuable lessons are learned and shared.
 
 ## Importance of Postmortems
 
@@ -26,22 +25,22 @@ The goal of this project is to produce a comprehensive postmortem that captures 
 
 ### Discovery
 
-- Detail how the issue was first noticed.
+- Describe how the problem was discovered initially.
 - Include information about monitoring systems or alerts that identified the problem.
-- Describe any user reports or feedback that indicated a service disruption.
+- Describe any customer complaints or feedback that pointed to an interruption in the service.
 
 ### Investigation
 
-- Outline the steps taken to diagnose the issue.
-- Mention any assumptions made and the paths followed during the investigation.
+- Describe the actions performed to identify the problem.
+- Mention any assumptions made and the paths followed when conducting the investigation.
 - Note any misleading paths or red herrings that complicated the troubleshooting process.
-- Identify the teams or individuals involved in the investigation.
+- List the teams or individuals working on the Problem.
 
 ### Resolution
 
 - Describe the steps taken to resolve the issue.
-- Detail any fixes or changes implemented to restore service.
-- Summarize how the resolution was verified and validated.
+- Describe any modifications or repairs made to bring back service.
+- Describe the steps used to confirm and validate the resolution.
 
 ## Tips for Writing an Engaging Postmortem
 
