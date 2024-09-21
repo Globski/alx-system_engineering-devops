@@ -2,7 +2,6 @@
 
 ![Postmortem](https://github.com/user-attachments/assets/e1389448-8493-4cac-ad3a-e9891ec873fb)
 
-
 ## Description
 
 This project emphasizes the significance of conducting incident postmortems in systems administration and DevOps. Postmortems enable teams to learn from outages, identify root causes, and implement preventative measures to avoid similar problems in the future.
