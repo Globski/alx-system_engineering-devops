@@ -132,12 +132,13 @@ The primary cause of the incident was a misconfiguration in the Docker container
 
 This incident highlighted the importance of thorough configuration checks and the need for robust testing procedures before deployment. By conducting this postmortem, we have identified actionable steps to enhance our incident response process and improve service reliability moving forward. Regular reviews of past incidents will help institutionalize a culture of continuous improvement within the team. 
 
-
 ### Next Steps
 
 1. Schedule a team meeting to discuss findings and preventive measures.
 2. Update incident response documentation to reflect changes.
 3. Initiate follow-up actions within the next sprint cycle.
+
+![A1](https://github.com/user-attachments/assets/392b232b-6be3-4d85-b282-28a657db7592)
 
 ## Additional Note
 ### Severity Level Rationale
