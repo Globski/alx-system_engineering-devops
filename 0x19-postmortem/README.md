@@ -1,5 +1,9 @@
 # System-Engineering Devops - Postmortem
 
+
+![A1](https://github.com/user-attachments/assets/e1389448-8493-4cac-ad3a-e9891ec873fb)
+
+
 ## Description
 
 This project focuses on the importance of conducting incident postmortems in the field of DevOps and system administration. Postmortems provide teams with an opportunity to learn from outages, identify root causes, and implement corrective measures to prevent future incidents.
