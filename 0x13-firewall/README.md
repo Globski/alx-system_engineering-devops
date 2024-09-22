@@ -1,4 +1,5 @@
 # System-Engineering Devops - Firewall
+![image](https://github.com/user-attachments/assets/baa72ff9-108f-4300-95ab-043389eefdcc)
 
 ## Description
 This project focuses on setting up and configuring firewall rules on a Linux server using UFW (Uncomplicated Firewall) to enhance security. The primary objectives are to secure the server by blocking all incoming traffic except for specific essential services and to implement port forwarding. By setting up and managing firewall rules, you will ensure secure and controlled access to your server.
