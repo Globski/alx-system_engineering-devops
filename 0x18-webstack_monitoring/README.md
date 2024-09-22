@@ -46,33 +46,39 @@ By the end of this project, you should be able to:
 
 1. **Sign Up for Datadog:**
    - Visit [Datadog’s sign-up page](https://www.datadoghq.com) and create a free account.
-   - Select the US1 region when prompted.
+   - Select the US1-East region when prompted.
+   - Fill in your full name, email, phone number, and password.
+   - After submitting, check your email for a verification code and enter it to complete registration.
 
-2. **Install Datadog Agent on `web-01`:**
-   - Log in to your `web-01` server.
+2. **Select Your Stack:**
+   - During the setup process, select your technology stack from options like Docker, Apache, Nginx, SQL Server, Ruby, Python, PostgreSQL, MySQL, Node.js, GitHub, or AWS.
+   - Scroll down to choose how many servers your organization manages. For example, if you have 3 servers, select 3.
+
+3. **Install Datadog Agent on `web-01`:**
+   - SSH into your `web-01` server.
    - Follow Datadog’s installation guide for Ubuntu. You can find the specific installation commands on [Datadog’s documentation](https://docs.datadoghq.com/agent/basic_agent_usage/ubuntu/).
-   - Use the following commands as a guide:
+   - Choose the appropriate installation command for your OS. For Ubuntu, use:
      ```bash
-     DD_AGENT_MAJOR_VERSION=7 DD_API_KEY=<YOUR_DATADOG_API_KEY> bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh)"
+     DD_API_KEY=<YOUR_DATADOG_API_KEY> DD_SITE="datadoghq.com" bash -c "$(curl -L https://install.datadoghq.com/scripts/install_script_agent7.sh)"
      ```
-   - Replace `<YOUR_DATADOG_API_KEY>` with your actual Datadog API key.
+   - Make sure to replace `<YOUR_DATADOG_API_KEY>` with your actual Datadog API key.
 
-3. **Verify Installation:**
+4. **Verify Installation:**
    - Check that the Datadog agent is running with the command:
      ```bash
      sudo datadog-agent status
      ```
    - Ensure that `web-01` appears on the Datadog dashboard under the hostname `XX-web-01`.
 
-4. **Create an Application Key:**
+5. **Create an Application Key:**
    - In the Datadog dashboard, navigate to the API section.
    - Generate an application key and save it securely for future use.
 
-5. **Update Hostname (if needed):**
+6. **Update Hostname (if needed):**
    - If you need to update the hostname using the Datadog API, follow the instructions in [Datadog’s API documentation](https://docs.datadoghq.com/api/latest/hosts/).
    - Use cURL or your preferred HTTP client to make API requests.
 
-6. **Secure Your API Key:**
+8. **Secure Your API Key:**
    - Ensure your API and application keys are stored securely, possibly in environment variables or a secret management tool.
 
 ### 2. Configure Monitors
