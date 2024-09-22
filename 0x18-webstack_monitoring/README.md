@@ -162,7 +162,7 @@ By the end of this project, you should be able to:
 
 ### 0. Sign up for Datadog and install datadog-agent
 
-**Objective:** Sign up for a free Datadog account, install the Datadog agent on `web-01`, and configure it.
+**Objective:** Sign up for a free Datadog account, install the Datadog agent on `web-01`, and configure it. When signing up, you’ll have the option of selecting statistics from your current stack that Datadog can monitor for you.
 
 ![A1](https://github.com/user-attachments/assets/b26dfb1e-0731-45c4-97b1-5fbcfd2c9104)
 
@@ -187,8 +187,12 @@ By the end of this project, you should be able to:
 
 ### 1. Monitor Some Metrics
 
-**Objective:** Set up Datadog monitors to track system metrics, specifically read and write requests per second.
+Among the litany of data your monitoring service can report to you are system metrics. You can use these metrics to determine statistics such as reads/writes per second, which can help your company determine if/how they should scale. Set up some monitors within the Datadog dashboard to monitor and alert you of a few.  You can read about the various system metrics that you can monitor here: [System Check](https://docs.datadoghq.com/integrations/system/)
+
+**Objective:** Set up Datadog monitors to track system metrics, specifically read and write requests per second. 
+
 ![A1](https://github.com/user-attachments/assets/0a8b2957-3da6-4e07-91d8-f27bc4b27edb)
+
 **Steps:**
 
 1. **Create Monitors:**
@@ -221,6 +225,8 @@ By the end of this project, you should be able to:
 3. **Retrieve Dashboard ID:**
    - Use Datadog’s API to get the dashboard ID.
    - Save the dashboard ID in a file named `2-setup_datadog`.
+
+Note: in order to get the id of your dashboard, you may need to use [Datadog’s API](https://intranet.alxswe.com/rltoken/n2KPoJtwzx8LjCpmCB4KVQ)
 
 ## Additional Information
 
