@@ -1,4 +1,5 @@
 #  What happens when you type google.com in your browser and press Enter
+![image](https://github.com/user-attachments/assets/9cb448a3-0b9e-459d-a997-ca0cb6067325)
 
 ## Description
 The project involves explaining in detail the processes that occur when you type "https://www.google.com" into your browser and press Enter. it tests your understanding of the basic workings of the internet, how different layers of the web stack interact, and the role of various network, server, and security components in delivering a web page.
