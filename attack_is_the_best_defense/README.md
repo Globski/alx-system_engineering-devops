@@ -1,5 +1,7 @@
 # System-Engineering DevOps - Attack is the Best Defense
 
+![A1](https://github.com/user-attachments/assets/83b238fb-294b-4b85-86ad-3ce2196ea9d1)
+
 ## Description
 
 This project focuses on network security and practical applications for sniffing unencrypted traffic and performing dictionary attacks. It involves two main tasks: sniffing unencrypted traffic to find a password and performing a dictionary attack on an SSH account. It aims to enhance understanding of network security, Docker, and authentication methods.
