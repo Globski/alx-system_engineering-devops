@@ -1,5 +1,8 @@
 # System-Engineering Devops - HTTPS SSL
 
+![Screenshot 2024-09-28 190635](https://github.com/user-attachments/assets/df729dea-31b4-4c79-bceb-e06dc0d81455)
+
+
 ## Description
 The project focuses on web server management and security using Ubuntu, HAproxy, SSL/TLS encryption, and Bash scripting.  Tasks include configuring DNS for domain zones, setting up HAproxy for SSL termination and HTTP to HTTPS redirection, and ensuring secure traffic management across web servers. The goal is to understand the roles of HTTPS and SSL, the benefits of encryption, and practical system administration and web security practices.
 
