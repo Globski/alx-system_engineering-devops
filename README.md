@@ -38,3 +38,7 @@ This repository contains projects focused on system engineering and DevOps pract
 | [command_line_for_the_win](./command_line_for_the_win) | This project focuses on enhancing Bash command line skills through a series of tasks involving scripting, loops, conditionals, and file operations. Participants complete challenges on CMD CHALLENGE, take screenshots of their progress, and upload these to a sandbox environment using SFTP. The project emphasizes practical command line techniques and task automation.  |
 
 This repository serves as a comprehensive resource for anyone looking to enhance their skills in system engineering and DevOps practices.
+
+---
+
+_Happy Coding!_
